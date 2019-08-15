@@ -1,3 +1,19 @@
-$primary: #1da1f2;
+// Grid breakpoints
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 1004px,
+    lg: 1094px,
+    xl: 1280px,
+);
+
+// Colors
+$gray-300: #f5f8fa;
+$gray-400: #e1e8ed;
+$gray-500: #aab8c2;
+$gray-600: #657786;
+$gray-900: #14171a;
+
+$blue: #1da1f2;
 
 @import './scss/bootstrap.scss';
