@@ -32,6 +32,8 @@ $primary: map-get($tw-colors, 'tw-primary');
 $success: map-get($tw-colors, 'tw-success');
 $danger: map-get($tw-colors, 'tw-danger');
 
+$border-color: $gray-400;
+
 @import './scss/bootstrap.scss';
 
 // =============== CUSTOM CLASSES ================

@@ -2,11 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Actions from './model/action';
 
-import { TWEETS_ORDER } from '../../constants/Tweets';
-import topTweet from '../../assets/svg/top-tweet.svg';
-
 import Button from '../../components/Button';
 import Popover, { PopoverPosition } from '../../components/Popover';
+import TweetsOrderSelector from './TweetsOrderSelector';
+
+import topTweet from '../../assets/svg/top-tweet.svg';
+import { TWEETS_ORDER } from '../../constants/Tweets';
 
 const INITIAL_STATE = {
     popoverTweetsVisible: false,
@@ -20,6 +21,21 @@ class HomeHeader extends React.Component {
 
         this.openTweetsPopover = this.openTweetsPopover.bind(this);
         this.closeTweetsPopover = this.closeTweetsPopover.bind(this);
+    }
+
+    get caption() {
+        const {
+            home: { tweetsOrder },
+        } = this.props;
+
+        switch (tweetsOrder) {
+            case TWEETS_ORDER.LASTEST:
+                return 'Lastest Tweets';
+
+            case TWEETS_ORDER.DEFAULT:
+            default:
+                return 'Home';
+        }
     }
 
     openTweetsPopover() {
@@ -44,13 +60,12 @@ class HomeHeader extends React.Component {
 
         return (
             <div className="h-100 d-flex align-items-center p-3">
-                <h1 className="h5 m-0 font-weight-bold">Home</h1>
-                {tweetsOrder.toString()}
+                <h1 className="h5 m-0 font-weight-bold">{this.caption}</h1>
+
                 <div className="position-relative ml-auto">
                     <Button
                         onClick={() => {
                             this.openTweetsPopover();
-                            sortTweets(TWEETS_ORDER.LASTEST);
                         }}
                         icon={topTweet}
                     />
@@ -60,9 +75,10 @@ class HomeHeader extends React.Component {
                         onClose={this.closeTweetsPopover}
                         position={PopoverPosition.TOP_RIGHT}
                     >
-                        <div className="card">
-                            <div className="card-body">hihi</div>
-                        </div>
+                        <TweetsOrderSelector
+                            sortTweets={sortTweets}
+                            tweetsOrder={tweetsOrder}
+                        />
                     </Popover>
                 </div>
             </div>
