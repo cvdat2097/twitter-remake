@@ -58,8 +58,8 @@ class NavBar extends React.Component {
     generateNavButtons(buttons) {
         return buttons.map((btn, index) => {
             return (
-                <div className="mb-2">
-                    <NavButton key={index} {...btn} />
+                <div key={index} className="mb-2">
+                    <NavButton {...btn} />
                 </div>
             );
         });
@@ -71,8 +71,25 @@ class NavBar extends React.Component {
                 <div className="tw-header d-lg-block d-flex flex-column align-items-center">
                     <NavButton icon="/assets/logo.svg" />
                 </div>
+
                 <div className="d-lg-block d-flex flex-column align-items-center">
                     {this.generateNavButtons(navLinks)}
+                </div>
+
+                <div className="d-lg-block d-flex justify-content-center mt-4">
+                    <button
+                        className="btn btn-primary rounded-pill d-inline-flex justify-content-center"
+                        style={{ padding: 10 }}
+                    >
+                        <span className={navLinkClassName}>Tweet</span>
+                        <img
+                            className="d-lg-none"
+                            src="/assets/tweet.svg"
+                            alt="tweet-button"
+                            width="24"
+                            height="24"
+                        />
+                    </button>
                 </div>
             </section>
         );
