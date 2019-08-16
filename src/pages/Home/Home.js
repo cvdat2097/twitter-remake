@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import Actions from './model/action';
 
 import NavBar from './NavBar';
 import HomeHeader from './HomeHeader';
@@ -14,7 +16,7 @@ class Home extends React.Component {
                 </div>
                 <div className="col col-sm ">
                     <section id="main">
-                        <div className="tw-header border border-primary">
+                        <div className="tw-header border">
                             <HomeHeader />
                         </div>
                         <div className="border border-danger">POSTS</div>
@@ -28,7 +30,7 @@ class Home extends React.Component {
                         <div className="border border-danger">SUGGESTION</div>
                     </section>
                     <footer className="border border-success">
-                        &copyright; Twitter - Remaked by D
+                        &copy; Twitter - Remaked by D
                     </footer>
                 </div>
             </div>
@@ -36,4 +38,14 @@ class Home extends React.Component {
     }
 }
 
-export default Home;
+const mapStateToProps = state => ({ home: state.home });
+const mapDispatchToProps = dispatch => ({
+    sortTweets(order) {
+        dispatch(Actions.changeTweetsOrder(order));
+    },
+});
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Home);

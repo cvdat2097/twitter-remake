@@ -10,6 +10,7 @@ const Button = props => {
         title,
         link,
         className,
+        onClick,
     } = props;
     let svgIcon = null;
 
@@ -19,6 +20,7 @@ const Button = props => {
 
     return (
         <button
+            onClick={onClick}
             className={
                 'btn-tw btn btn-transparent-primary rounded-pill d-flex align-items-center shadow-none ' +
                 className

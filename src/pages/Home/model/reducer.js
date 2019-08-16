@@ -1,17 +1,17 @@
 import actionTypes from './type';
+import { TWEETS_ORDER } from '../../../constants/Tweets';
 
 const INITIAL_STATE = {
-    tweetMessage: '',
+    tweetsOrder: TWEETS_ORDER.DEFAULT,
 };
 
 const homePageReducer = (state = INITIAL_STATE, action) => {
     const { type } = action;
 
     switch (type) {
-        case actionTypes.TWEET:
-            console.log(state);
+        case actionTypes.CHANGE_TWEETS_ORDER:
             return {
-                tweetMessage: action.message,
+                tweetsOrder: action.order,
             };
 
         default:
