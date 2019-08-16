@@ -1,0 +1,19 @@
+.btn-nav {
+    padding: 0.3rem !important;
+
+    .h5 {
+        margin: 0;
+    }
+
+    img {
+        width: 27px;
+    }
+
+    &:hover {
+        background: #e8f5fe;
+    }
+
+    &:active {
+        background: #daeefd;
+    }
+}

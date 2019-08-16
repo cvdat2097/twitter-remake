@@ -1,20 +1,17 @@
 import React from 'react';
 
+import NavBar from './NavBar';
+
 import './Home.scss';
 
 class Home extends React.Component {
     render() {
         return (
             <div id="home-page-container" className="row no-gutters">
-                <div className="col-auto col-sm-3">
-                    <section id="nav-bar">
-                        <div className="tw-header border border-primary">
-                            NAV HEADER
-                        </div>
-                        <div className="border border-danger">NAV LINKS</div>
-                    </section>
+                <div className="col-auto col-xl-3">
+                    <NavBar />
                 </div>
-                <div className="col col-sm-11 col-md-7 ">
+                <div className="col col-sm ">
                     <section id="main">
                         <div className="tw-header border border-primary">
                             POST HEADER

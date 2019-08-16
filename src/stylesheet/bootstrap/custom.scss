@@ -1,3 +1,5 @@
+@import '../style.scss';
+
 // Grid breakpoints
 $grid-columns: 14;
 
@@ -16,7 +18,7 @@ $gray-500: #aab8c2;
 $gray-600: #657786;
 $gray-900: #14171a;
 
-$blue: #1da1f2;
+$primary: $tw-primary;
 
 .fluid-container {
     max-width: map-get($grid-breakpoints, 'xl');
