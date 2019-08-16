@@ -1,7 +1,13 @@
 $section-header-width: 53px;
 
-$tw-primary: #1da1f2;
+$tw-colors: (
+    tw-primary: #1da1f2,
+    tw-success: #17bf63,
+    tw-danger: #e0245e,
+);
 
 :export {
-    twPrimary: $tw-primary;
+    twPrimary: map-get($tw-colors, 'tw-primary');
+    twSuccess: map-get($tw-colors, 'tw-success');
+    twDanger: map-get($tw-colors, 'tw-danger');
 }

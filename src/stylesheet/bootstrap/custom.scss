@@ -1,5 +1,15 @@
 @import '../style.scss';
 
+// Functions
+@function get-hover-color($color) {
+    @return lighten($color, 37%);
+}
+
+@function get-active-color($color) {
+    @return lighten($color, 32%);
+}
+
+// =============== CUSTOM VARIABLES ================
 // Grid breakpoints
 $grid-columns: 14;
 
@@ -18,11 +28,34 @@ $gray-500: #aab8c2;
 $gray-600: #657786;
 $gray-900: #14171a;
 
-$primary: $tw-primary;
+$primary: map-get($tw-colors, 'tw-primary');
+$success: map-get($tw-colors, 'tw-success');
+$danger: map-get($tw-colors, 'tw-danger');
 
+@import './scss/bootstrap.scss';
+
+// =============== CUSTOM CLASSES ================
 .fluid-container {
     max-width: map-get($grid-breakpoints, 'xl');
     margin: 0 auto;
 }
 
-@import './scss/bootstrap.scss';
+@each $color, $value in $theme-colors {
+    .btn-transparent-#{$color} {
+        box-shadow: none !important;
+        border: none;
+
+        &:not(.disabled):hover {
+            color: $value !important;
+            background: get-hover-color($value);
+
+            svg path {
+                fill: $value !important;
+            }
+        }
+
+        &:not(.disabled):active {
+            background: get-active-color($value) !important;
+        }
+    }
+}
