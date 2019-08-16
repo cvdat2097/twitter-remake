@@ -22,7 +22,7 @@ const Button = props => {
         <button
             onClick={onClick}
             className={
-                'btn-tw btn btn-transparent-primary rounded-pill d-flex align-items-center shadow-none ' +
+                'tw-btn btn btn-transparent-primary rounded-pill d-flex align-items-center shadow-none ' +
                 className
             }
         >
