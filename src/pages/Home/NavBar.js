@@ -1,6 +1,6 @@
 import React from 'react';
 
-import NavButton from '../../components/NavButton';
+import Button from '../../components/Button';
 
 import appStyle from '../../stylesheet/style.scss';
 import './NavBar.scss';
@@ -71,11 +71,11 @@ const navLinks = [
 ];
 
 class NavBar extends React.Component {
-    generateNavButtons(buttons) {
+    generateButtons(buttons) {
         return buttons.map((btn, index) => {
             return (
                 <div key={index} className="mb-2 nav-item">
-                    <NavButton {...btn} />
+                    <Button className="large" {...btn} />
                 </div>
             );
         });
@@ -83,13 +83,13 @@ class NavBar extends React.Component {
 
     render() {
         return (
-            <section id="nav-bar">
+            <section id="nav-bar" className="py-1">
                 <div className="tw-header d-lg-block d-flex flex-column align-items-center">
-                    <NavButton icon={<LogoSVG />} />
+                    <Button className="large" icon={<LogoSVG />} />
                 </div>
 
                 <div className="d-lg-block d-flex flex-column align-items-center nav">
-                    {this.generateNavButtons(navLinks)}
+                    {this.generateButtons(navLinks)}
                 </div>
 
                 <div className="d-lg-block d-flex justify-content-center mt-4">

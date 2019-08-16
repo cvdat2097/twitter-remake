@@ -1,6 +1,7 @@
 import React from 'react';
 
 import NavBar from './NavBar';
+import HomeHeader from './HomeHeader';
 
 import './Home.scss';
 
@@ -14,7 +15,7 @@ class Home extends React.Component {
                 <div className="col col-sm ">
                     <section id="main">
                         <div className="tw-header border border-primary">
-                            POST HEADER
+                            <HomeHeader />
                         </div>
                         <div className="border border-danger">POSTS</div>
                     </section>

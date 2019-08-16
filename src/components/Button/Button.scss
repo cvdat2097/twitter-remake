@@ -1,0 +1,43 @@
+.btn-tw {
+    &.small {
+        padding: 0.1rem !important;
+
+        .btn-icon {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    &,
+    &.medium {
+        padding: 0.3rem !important;
+
+        .btn-icon {
+            width: 27px;
+            height: 27px;
+        }
+    }
+
+    &.large {
+        padding: 0.5rem !important;
+
+        .btn-icon {
+            width: 32px;
+            height: 32px;
+        }
+    }
+
+    .btn-icon {
+        // &.medium {
+        //     padding: 0.5rem !important;
+        //     width: 32px;
+        //     height: 32px;
+        // }
+
+        img,
+        svg {
+            width: 80%;
+            height: 80%;
+        }
+    }
+}

@@ -1,8 +1,16 @@
 import React from 'react';
-import './NavButton.scss';
+import './Button.scss';
 
-const NavButton = props => {
-    const { icon, activeIcon, active, activeColor, title, link } = props;
+const Button = props => {
+    const {
+        icon,
+        activeIcon,
+        active,
+        activeColor,
+        title,
+        link,
+        className,
+    } = props;
     let svgIcon = null;
 
     if (typeof icon !== 'string') {
@@ -10,8 +18,13 @@ const NavButton = props => {
     }
 
     return (
-        <button className="btn-nav btn btn-transparent-primary rounded-pill d-flex align-items-center shadow-none">
-            <span className="btn-icon">
+        <button
+            className={
+                'btn-tw btn btn-transparent-primary rounded-pill d-flex align-items-center shadow-none ' +
+                className
+            }
+        >
+            <span className="btn-icon d-flex justify-content-center align-items-center">
                 {svgIcon || (
                     <img
                         style={{ color: 'red' }}
@@ -40,4 +53,4 @@ const NavButton = props => {
     );
 };
 
-export default NavButton;
+export default Button;
