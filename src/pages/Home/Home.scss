@@ -1,0 +1,17 @@
+$section-header-width: 53px;
+
+.tw-header {
+    height: $section-header-width;
+}
+
+#home-page-container {
+    flex-wrap: nowrap;
+}
+
+#nav-bar {
+    min-width: 68px;
+}
+
+#main {
+    overflow: hidden;
+}

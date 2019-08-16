@@ -10,7 +10,7 @@ window.store = store;
 class App extends React.Component {
     render() {
         return (
-            <div className="container">
+            <div className="fluid-container">
                 <HomePage />
             </div>
         );
