@@ -23,21 +23,6 @@ class HomeHeader extends React.Component {
         this.closeTweetsPopover = this.closeTweetsPopover.bind(this);
     }
 
-    get caption() {
-        const {
-            home: { tweetsOrder },
-        } = this.props;
-
-        switch (tweetsOrder) {
-            case TWEETS_ORDER.LASTEST:
-                return 'Lastest Tweets';
-
-            case TWEETS_ORDER.DEFAULT:
-            default:
-                return 'Home';
-        }
-    }
-
     openTweetsPopover() {
         this.setState({
             popoverTweetsVisible: true,
@@ -51,16 +36,12 @@ class HomeHeader extends React.Component {
     }
 
     render() {
-        const {
-            sortTweets,
-            home: { tweetsOrder },
-        } = this.props;
-
+        const { caption, sortTweets, tweetsOrder } = this.props;
         const { popoverTweetsVisible } = this.state;
 
         return (
             <div className="h-100 d-flex align-items-center p-3">
-                <h1 className="h5 m-0 font-weight-bold">{this.caption}</h1>
+                <h1 className="h5 m-0 font-weight-bold">{caption}</h1>
 
                 <div className="position-relative ml-auto">
                     <Button
@@ -86,7 +67,26 @@ class HomeHeader extends React.Component {
     }
 }
 
-const mapStateToProps = state => ({ home: state.home });
+const getCaptionFromTweetsOrder = tweetsOrder => {
+    switch (tweetsOrder) {
+        case TWEETS_ORDER.LASTEST:
+            return 'Lastest Tweets';
+
+        case TWEETS_ORDER.DEFAULT:
+        default:
+            return 'Home';
+    }
+};
+
+const mapStateToProps = ({ home }) => {
+    const { tweetsOrder } = home;
+    let caption = getCaptionFromTweetsOrder(tweetsOrder);
+
+    return {
+        tweetsOrder,
+        caption,
+    };
+};
 const mapDispatchToProps = dispatch => ({
     sortTweets(order) {
         dispatch(Actions.changeTweetsOrder(order));
