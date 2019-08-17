@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { Menu, MenuItem } from './utils/Menu';
+import { Menu, MenuItem } from '../utils/Menu';
 
-import { TWEETS_ORDER } from '../constants/tweets';
+import { TWEETS_ORDER } from '../../constants/tweets';
 
-import defaultSVG from '../assets/svg/tweetsOrder/tweetsOrder-default.svg';
-import lastestSVG from '../assets/svg/tweetsOrder/tweetsOrder-lastest.svg';
-import exportSVG from '../assets/svg/icons/export.svg';
-import settingsSVG from '../assets/svg/icons/settings.svg';
+import defaultSVG from '../../assets/svg/tweetsOrder/tweetsOrder-default.svg';
+import lastestSVG from '../../assets/svg/tweetsOrder/tweetsOrder-lastest.svg';
+import exportSVG from '../../assets/svg/icons/export.svg';
+import settingsSVG from '../../assets/svg/icons/settings.svg';
 
 class TweetsOrderSelector extends React.Component {
     get textFromTweetsOrder() {

@@ -5,6 +5,7 @@ $tw-colors: (
     tw-success: #17bf63,
     tw-danger: #e0245e,
     tw-light: #f5f8fa,
+    tw-secondary: #aab8c2,
 );
 
 :export {
@@ -25,4 +26,16 @@ $tw-colors: (
 
 .clickable {
     cursor: pointer;
+}
+
+::-webkit-input-placeholder {
+    color: map-get($tw-colors, 'tw-secondary') !important;
+}
+
+:-ms-input-placeholder {
+    color: map-get($tw-colors, 'tw-secondary') !important;
+}
+
+::placeholder {
+    color: map-get($tw-colors, 'tw-secondary') !important;
 }

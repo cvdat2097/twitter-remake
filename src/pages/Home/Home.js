@@ -8,9 +8,12 @@ import HomeFooter from './HomeFooter';
 import SearchBar from '../../components/SearchBar';
 import TrendsList from '../../components/TrendsList';
 import FollowSuggestion from '../../components/FollowSuggestion';
-import TweetComposer from '../../components/TweetComposer';
+import TweetComposer from '../../components/tweet/TweetComposer';
+import Tweet from '../../components/tweet/Tweet';
 
 import './home.scss';
+
+import { TWEETS } from '../../mock/tweet';
 
 class Home extends React.Component {
     render() {
@@ -27,12 +30,19 @@ class Home extends React.Component {
 
                         <div className="d-flex flex-column">
                             <TweetComposer />
+
                             <div
                                 className="bg-light d-inline-block w-100"
                                 style={{
                                     height: 10,
                                 }}
                             />
+
+                            <div>
+                                {TWEETS.map((twt, index) => (
+                                    <Tweet key={index} {...twt} />
+                                ))}
+                            </div>
                         </div>
                     </section>
                 </div>

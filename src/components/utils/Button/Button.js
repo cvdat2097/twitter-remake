@@ -1,5 +1,7 @@
 import React from 'react';
 
+import ButtonType from './ButtonType';
+
 import './button.scss';
 
 const Button = props => {
@@ -14,6 +16,8 @@ const Button = props => {
         link,
         className,
         onClick,
+        type,
+        children,
     } = props;
     let svgIcon = null;
 
@@ -21,13 +25,15 @@ const Button = props => {
         svgIcon = active ? activeIcon || icon : icon;
     }
 
+    const buttonType = type ? type : ButtonType.PRIMARY;
+
     return (
         <button
             onClick={onClick}
             className={
                 (outlined
-                    ? ' btn-outline-primary'
-                    : ' btn-transparent-primary') +
+                    ? ` btn-outline-${buttonType}`
+                    : ` btn-transparent-${buttonType}`) +
                 (disabled ? ' disabled' : '') +
                 ' tw-btn btn rounded-pill d-inline-flex align-items-center shadow-none ' +
                 className
@@ -57,6 +63,8 @@ const Button = props => {
                     {' '}
                 </a>
             )}
+
+            {children}
         </button>
     );
 };

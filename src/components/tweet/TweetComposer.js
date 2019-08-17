@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { Button } from './utils/Button';
+import { Button } from '../utils/Button';
 
-import photoSVG from '../assets/svg/icons/photo.svg';
-import gifSVG from '../assets/svg/icons/gif.svg';
-import pollSVG from '../assets/svg/icons/poll.svg';
-import emoticonSVG from '../assets/svg/icons/emoticon.svg';
-import addSVG from '../assets/svg/icons/add.svg';
+import photoSVG from '../../assets/svg/icons/photo.svg';
+import gifSVG from '../../assets/svg/icons/gif.svg';
+import pollSVG from '../../assets/svg/icons/poll.svg';
+import emoticonSVG from '../../assets/svg/icons/emoticon.svg';
+import addSVG from '../../assets/svg/icons/add.svg';
 import './tweetcomposer.scss';
 
 const INITIAL_STATE = {
