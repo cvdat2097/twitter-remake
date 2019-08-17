@@ -1,4 +1,4 @@
-.tw-search-box {
+.tw-search-input {
     %icon {
         position: absolute;
         top: 10px;
@@ -21,4 +21,17 @@
         justify-content: center;
         align-items: center;
     }
+
+    input:focus {
+        background: transparent !important;
+    }
+}
+
+.tw-search-result {
+    position: absolute !important;
+    top: 100%;
+    left: 0;
+    width: 100%;
+
+    margin-top: 1px;
 }
