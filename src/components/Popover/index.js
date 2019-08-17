@@ -67,6 +67,7 @@ class Popover extends React.Component {
                         style={{
                             ...this.styleFromPosition,
                             zIndex: 9999,
+                            maxWidth: '75vw'
                         }}
                     >
                         {children}
