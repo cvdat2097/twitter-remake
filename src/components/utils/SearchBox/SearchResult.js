@@ -1,49 +1,23 @@
 import React from 'react';
 
-import verifiedSvg from '../../../assets/svg/icons/verified-account.svg';
+import AccountSummary from '../AccountSummary';
+
 import './search.scss';
 
 const TopicResult = props => {
     const { topic } = props;
 
-    return <div className="p-2 font-weight-bold border-bottom">{topic}</div>;
+    return (
+        <div className="p-2 font-weight-bold border-bottom clickable">
+            {topic}
+        </div>
+    );
 };
 
 const TextResult = props => {
     const { text } = props;
 
-    return <div className="p-2">{text}</div>;
-};
-
-const AccountResult = props => {
-    const { name, username, avatar, isVerified } = props;
-
-    return (
-        <div className="d-flex p-2 border-bottom">
-            <img
-                src={avatar}
-                className="rounded-circle mr-2"
-                alt=""
-                width="50"
-                height="50"
-            />
-            <div className="d-flex flex-column">
-                <div>
-                    <span className="font-weight-bold">{name}</span>{' '}
-                    {isVerified ? (
-                        <img
-                            className="align-baseline"
-                            src={verifiedSvg}
-                            alt=""
-                            width="16"
-                            height="16"
-                        />
-                    ) : null}
-                </div>
-                <div className="text-secondary small">@{username}</div>
-            </div>
-        </div>
-    );
+    return <div className="p-2 clickable">{text}</div>;
 };
 
 class SearchResult extends React.Component {
@@ -60,14 +34,25 @@ class SearchResult extends React.Component {
             return null;
         }
 
-        return results.map((r, index) => <AccountResult key={index} {...r} />);
+        return results.map((r, index) => (
+            <AccountSummary
+                className="border-bottom p-2 clickable"
+                key={index}
+                {...r}
+            />
+        ));
     }
 
     render() {
         const { className, results, keyword } = this.props;
 
         return (
-            <div className={'tw-search-result card shadow ' + className}>
+            <div
+                className={
+                    'tw-search-result card shadow ' +
+                    (className ? className : '')
+                }
+            >
                 <div className="card-body p-0">
                     {keyword &&
                     results &&

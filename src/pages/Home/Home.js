@@ -6,6 +6,7 @@ import NavBar from './NavBar';
 import HomeHeader from './HomeHeader';
 import SearchBar from '../../components/SearchBar';
 import TrendsList from '../../components/TrendsList';
+import FollowSuggestion from '../../components/FollowSuggestion';
 
 import './home.scss';
 
@@ -31,6 +32,9 @@ class Home extends React.Component {
                         </div>
                         <div className="p-2">
                             <TrendsList />
+                        </div>
+                        <div className="p-2">
+                            <FollowSuggestion />
                         </div>
                     </section>
                     <footer className="">&copy; Twitter - Remaked by D</footer>
