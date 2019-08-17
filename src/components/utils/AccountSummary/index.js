@@ -1,1 +1,1 @@
-export { default } from './AccountSummary';
+export { default as AccountSummary } from './AccountSummary';

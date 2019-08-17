@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Button from '../../components/utils/Button';
+import { Button } from '../../components/utils/Button';
 
 import tweetSVG from '../../assets/svg/tweet.svg';
 import { ReactComponent as LogoSVG } from '../../assets/svg/logo.svg';

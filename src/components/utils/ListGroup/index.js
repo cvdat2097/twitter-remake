@@ -1,2 +1,2 @@
 export { default as ListItem } from './ListItem';
-export { default } from './ListGroup';
+export { default as ListGroup } from './ListGroup';

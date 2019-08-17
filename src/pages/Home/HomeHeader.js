@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Button from '../../components/utils/Button';
-import Popover, { PopoverPosition } from '../../components/utils/Popover';
+import { Button } from '../../components/utils/Button';
+import { Popover, PopoverPosition } from '../../components/utils/Popover';
 import TweetsOrderSelector from './TweetsOrderSelector';
 
 import { TWEETS_ORDER } from '../../constants/tweets';

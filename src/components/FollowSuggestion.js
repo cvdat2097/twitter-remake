@@ -1,7 +1,7 @@
 import React from 'react';
 
-import ListGroup, { ListItem } from '../components/utils/ListGroup';
-import AccountSummary from '../components/utils/AccountSummary';
+import { ListGroup, ListItem } from '../components/utils/ListGroup';
+import { AccountSummary } from '../components/utils/AccountSummary';
 
 import { PEOPLE_TO_FOLLOW } from '../mock/follow';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Menu, { MenuItem } from '../../components/utils/Menu';
+import { Menu, MenuItem } from '../../components/utils/Menu';
 
 import { TWEETS_ORDER } from '../../constants/tweets';
 

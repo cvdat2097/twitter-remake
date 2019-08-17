@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 
-import Popover, { PopoverPosition } from '../../components/utils/Popover';
-import Menu, { MenuItem } from '../../components/utils/Menu';
+import { Popover, PopoverPosition } from '../../components/utils/Popover';
+import { Menu, MenuItem } from '../../components/utils/Menu';
 
 import { ReactComponent as DownSVG } from '../../assets/svg/icons/down.svg';
 
@@ -50,7 +50,7 @@ class HomeFooter extends React.Component {
                     Ads info
                 </a>
                 <span
-                    className="xsmall text-muted mr-3 btn-link position-relative"
+                    className="xsmall text-muted mr-3 btn-link position-relative text-nowrap"
                     href="#"
                     onClick={this.showFooterMenu}
                 >
@@ -82,7 +82,7 @@ class HomeFooter extends React.Component {
                     </Popover>
                 </span>
                 <span className="xsmall text-muted">
-                    &copy; Twitter, Inc - Remaked by D
+                    &copy;&nbsp;Twitter, Inc - Remaked by D
                 </span>
             </footer>
         );

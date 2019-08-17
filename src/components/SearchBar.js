@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import SearchBox from './utils/SearchBox';
+import { SearchBox } from './utils/SearchBox';
 
 import Actions from '../core/search/action';
 import request, { METHOD } from '../api/request';

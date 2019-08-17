@@ -1,6 +1,6 @@
 import React from 'react';
 
-import AccountSummary from '../AccountSummary';
+import { AccountSummary } from '../AccountSummary';
 
 import './search.scss';
 

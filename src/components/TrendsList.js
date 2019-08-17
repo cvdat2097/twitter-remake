@@ -1,7 +1,7 @@
 import React from 'react';
 
-import ListGroup, { ListItem } from '../components/utils/ListGroup';
-import Button from '../components/utils/Button';
+import { ListGroup, ListItem } from '../components/utils/ListGroup';
+import { Button } from '../components/utils/Button';
 
 import { TRENDS } from '../mock/trends';
 
