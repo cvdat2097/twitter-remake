@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { Button } from '../../components/utils/Button';
 import { Popover, PopoverPosition } from '../../components/utils/Popover';
-import TweetsOrderSelector from './TweetsOrderSelector';
+import TweetsOrderSelector from '../../components/TweetsOrderSelector';
 
 import { TWEETS_ORDER } from '../../constants/tweets';
 import Actions from '../../core/tweets/action';

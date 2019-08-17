@@ -4,6 +4,8 @@ import './button.scss';
 
 const Button = props => {
     const {
+        outlined,
+        disabled,
         icon,
         activeIcon,
         active,
@@ -23,7 +25,11 @@ const Button = props => {
         <button
             onClick={onClick}
             className={
-                'tw-btn btn btn-transparent-primary rounded-pill d-flex align-items-center shadow-none ' +
+                (outlined
+                    ? ' btn-outline-primary'
+                    : ' btn-transparent-primary') +
+                (disabled ? ' disabled' : '') +
+                ' tw-btn btn rounded-pill d-inline-flex align-items-center shadow-none ' +
                 className
             }
         >

@@ -8,7 +8,7 @@ const TopicResult = props => {
     const { topic } = props;
 
     return (
-        <div className="p-2 font-weight-bold border-bottom clickable">
+        <div className="search-result p-2 font-weight-bold border-bottom clickable">
             {topic}
         </div>
     );
@@ -62,7 +62,12 @@ class SearchResult extends React.Component {
                                 {this.generateTopipcResults(results.topics)}
                             </div>
 
-                            <hr className="m-0" />
+                            <div
+                                className="bg-light d-inline-block w-100"
+                                style={{
+                                    height: 8,
+                                }}
+                            />
 
                             <div className="account-results">
                                 {this.generateAccountResults(results.accounts)}

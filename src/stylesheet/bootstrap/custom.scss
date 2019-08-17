@@ -45,6 +45,10 @@ $border-radius-xl: 0.7rem !default;
     font-size: 70%;
 }
 
+.big {
+    font-size: 130%;
+}
+
 .btn-link {
     cursor: pointer;
 
@@ -57,6 +61,25 @@ $border-radius-xl: 0.7rem !default;
     .btn-transparent-#{$color} {
         box-shadow: none !important;
         border: none;
+
+        &:not(.disabled):hover {
+            color: $value !important;
+            background: get-hover-color($value);
+
+            svg path {
+                fill: $value !important;
+            }
+        }
+
+        &:not(.disabled):active {
+            background: get-active-color($value) !important;
+        }
+    }
+}
+
+@each $color, $value in $theme-colors {
+    .btn-outline-#{$color} {
+        box-shadow: none !important;
 
         &:not(.disabled):hover {
             color: $value !important;

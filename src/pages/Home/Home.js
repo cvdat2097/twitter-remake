@@ -8,6 +8,7 @@ import HomeFooter from './HomeFooter';
 import SearchBar from '../../components/SearchBar';
 import TrendsList from '../../components/TrendsList';
 import FollowSuggestion from '../../components/FollowSuggestion';
+import TweetComposer from '../../components/TweetComposer';
 
 import './home.scss';
 
@@ -23,7 +24,16 @@ class Home extends React.Component {
                         <div className="tw-header border-bottom">
                             <HomeHeader />
                         </div>
-                        <div className="">POSTS</div>
+
+                        <div className="d-flex flex-column">
+                            <TweetComposer />
+                            <div
+                                className="bg-light d-inline-block w-100"
+                                style={{
+                                    height: 10,
+                                }}
+                            />
+                        </div>
                     </section>
                 </div>
                 <div className="col-md-4 d-none d-md-block">
