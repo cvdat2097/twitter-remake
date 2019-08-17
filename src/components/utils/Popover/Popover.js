@@ -45,7 +45,9 @@ class Popover extends React.Component {
         }
     }
 
-    handleBackdropClick() {
+    handleBackdropClick(event) {
+        event.stopPropagation();
+
         const { onClose } = this.props;
 
         onClose && onClose();

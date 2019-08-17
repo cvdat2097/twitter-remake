@@ -45,6 +45,14 @@ $border-radius-xl: 0.7rem !default;
     font-size: 70%;
 }
 
+.btn-link {
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
 @each $color, $value in $theme-colors {
     .btn-transparent-#{$color} {
         box-shadow: none !important;
