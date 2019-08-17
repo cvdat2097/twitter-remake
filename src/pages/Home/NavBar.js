@@ -1,9 +1,6 @@
 import React from 'react';
 
-import Button from '../../components/Button';
-
-import appStyle from '../../stylesheet/style.scss';
-import './NavBar.scss';
+import Button from '../../components/utils/Button';
 
 import tweetSVG from '../../assets/svg/tweet.svg';
 import { ReactComponent as LogoSVG } from '../../assets/svg/logo.svg';
@@ -20,6 +17,7 @@ import { ReactComponent as ActiveBookmarksSVG } from '../../assets/svg/bookmarks
 import { ReactComponent as ListsSVG } from '../../assets/svg/lists.svg';
 import { ReactComponent as ActiveListsSVG } from '../../assets/svg/lists-active.svg';
 import { ReactComponent as MoreSVG } from '../../assets/svg/more.svg';
+import appStyle from '../../stylesheet/style.scss';
 
 const navLinkClassName = 'd-none d-lg-block mx-3 font-weight-bold';
 const navLinks = [

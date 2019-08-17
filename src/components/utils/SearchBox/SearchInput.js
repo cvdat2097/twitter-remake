@@ -2,10 +2,9 @@ import React from 'react';
 
 import SearchResult from './SearchResult';
 
-import searchSVG from '../../assets/svg/icons/search.svg';
-import closeSVG from '../../assets/svg/icons/close.svg';
-
-import './SearchBox.scss';
+import searchSVG from '../../../assets/svg/icons/search.svg';
+import closeSVG from '../../../assets/svg/icons/close.svg';
+import './search.scss';
 
 const INITIAL_STATE = {
     keyword: '',

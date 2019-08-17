@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Actions from './model/action';
+import Actions from '../../core/tweets/action';
 
 import NavBar from './NavBar';
 import HomeHeader from './HomeHeader';
-import SearchBar from './SearchBar';
+import SearchBar from '../../components/SearchBar';
 
 
-import './Home.scss';
+import './home.scss';
 
 class Home extends React.Component {
     render() {
@@ -40,7 +40,7 @@ class Home extends React.Component {
     }
 }
 
-const mapStateToProps = state => ({ home: state.home });
+const mapStateToProps = state => ({ tweets: state.tweets });
 const mapDispatchToProps = dispatch => ({
     sortTweets(order) {
         dispatch(Actions.changeTweetsOrder(order));

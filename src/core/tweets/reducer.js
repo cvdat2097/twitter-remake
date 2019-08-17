@@ -1,5 +1,5 @@
-import actionTypes from './type';
-import { TWEETS_ORDER } from '../../../constants/Tweets';
+import ACTION_TYPE from './type';
+import { TWEETS_ORDER } from '../../constants/Tweets';
 
 const INITIAL_STATE = {
     tweetsOrder: TWEETS_ORDER.DEFAULT,
@@ -9,7 +9,7 @@ const homePageReducer = (state = INITIAL_STATE, action) => {
     const { type } = action;
 
     switch (type) {
-        case actionTypes.CHANGE_TWEETS_ORDER:
+        case ACTION_TYPE.CHANGE_TWEETS_ORDER:
             return {
                 tweetsOrder: action.order,
             };

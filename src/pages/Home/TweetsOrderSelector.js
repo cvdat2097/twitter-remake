@@ -7,7 +7,7 @@ import lastestSVG from '../../assets/svg/tweetsOrder/tweetsOrder-lastest.svg';
 import exportSVG from '../../assets/svg/icons/export.svg';
 import settingsSVG from '../../assets/svg/icons/settings.svg';
 
-function SettingOption(props) {
+const SettingOption = props => {
     const { title, icon, description, onClick } = props;
 
     return (
@@ -29,7 +29,7 @@ function SettingOption(props) {
             </div>
         </button>
     );
-}
+};
 
 class TweetsOrderSelector extends React.Component {
     get textFromTweetsOrder() {

@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Actions from '../../redux/action';
-import request, { METHOD } from '../../api/request';
-import ROUTES from '../../api/routes';
+import SearchBox from './utils/SearchBox';
 
-import SearchBox from '../../components/SearchBox';
+import Actions from '../core/search/action';
+import request, { METHOD } from '../api/request';
+import ROUTES from '../api/routes';
 
 class SearchBar extends React.Component {
     async search(keyword) {

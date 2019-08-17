@@ -1,8 +1,8 @@
-import ActionType from './type';
+import ACTION_TYPE from './type';
 
 export default {
     gotSearchResults: results => ({
-        type: ActionType.GOT_SEARCH_RESULTS,
+        type: ACTION_TYPE.GOT_SEARCH_RESULTS,
         results,
     }),
 };

@@ -1,8 +1,7 @@
 import React from 'react';
 
-import verifiedSvg from '../../assets/svg/icons/verified-account.svg';
-
-import './SearchBox.scss';
+import verifiedSvg from '../../../assets/svg/icons/verified-account.svg';
+import './search.scss';
 
 const TopicResult = props => {
     const { topic } = props;
