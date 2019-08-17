@@ -4,6 +4,7 @@ import Actions from './model/action';
 
 import NavBar from './NavBar';
 import HomeHeader from './HomeHeader';
+import SearchBox from '../../components/SearchBox';
 
 import './Home.scss';
 
@@ -25,7 +26,7 @@ class Home extends React.Component {
                 <div className="col-md-4 d-none d-md-block">
                     <section id="suggestion">
                         <div className="tw-header border border-primary">
-                            SUGGESTION HEADER
+                            <SearchBox />
                         </div>
                         <div className="border border-danger">SUGGESTION</div>
                     </section>
