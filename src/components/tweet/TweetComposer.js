@@ -35,7 +35,7 @@ class TweetComposer extends React.Component {
             <div className="tw-composer d-flex px-3 py-2">
                 <img
                     className="rounded-circle mr-1"
-                    src="/img/account-0.jpg"
+                    src="./img/account-0.jpg"
                     alt=""
                     width="50"
                     height="50"

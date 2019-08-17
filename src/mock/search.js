@@ -16,13 +16,13 @@ export const SEARCH_RESULTS = {
             name: 'React JS',
             username: 'reactjs_dev',
             isVerified: true,
-            avatar: '/img/account-1.png',
+            avatar: './img/account-1.png',
         },
         {
             name: 'Angular 6',
             username: 'angularisdabest4459',
             isVerified: false,
-            avatar: '/img/account-2.png',
+            avatar: './img/account-2.png',
         },
     ],
 };
