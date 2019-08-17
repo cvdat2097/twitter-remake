@@ -5,7 +5,7 @@ import Button from '../../components/utils/Button';
 import Popover, { PopoverPosition } from '../../components/utils/Popover';
 import TweetsOrderSelector from './TweetsOrderSelector';
 
-import { TWEETS_ORDER } from '../../constants/Tweets';
+import { TWEETS_ORDER } from '../../constants/tweets';
 import Actions from '../../core/tweets/action';
 
 import topTweet from '../../assets/svg/top-tweet.svg';

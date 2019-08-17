@@ -1,0 +1,20 @@
+@import '../../../stylesheet/style.scss';
+
+.tw-list-group {
+    background: map-get($tw-colors, 'tw-light');
+    border-radius: 1rem;
+    overflow: hidden;
+
+    .tw-list-group-item {
+        background: transparent;
+        border: none;
+
+        &:not(.list-header):hover {
+            background: darken(map-get($tw-colors, 'tw-light'), 3%);
+        }
+
+        &:not(.list-header):active {
+            background: darken(map-get($tw-colors, 'tw-light'), 5%);
+        }
+    }
+}

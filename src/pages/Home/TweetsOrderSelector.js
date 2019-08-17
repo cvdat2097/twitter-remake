@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { TWEETS_ORDER } from '../../constants/Tweets';
+import { TWEETS_ORDER } from '../../constants/tweets';
 
 import defaultSVG from '../../assets/svg/tweetsOrder/tweetsOrder-default.svg';
 import lastestSVG from '../../assets/svg/tweetsOrder/tweetsOrder-lastest.svg';

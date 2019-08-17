@@ -67,7 +67,7 @@ class SearchResult extends React.Component {
         const { className, results, keyword } = this.props;
 
         return (
-            <div className={'tw-search-result card ' + className}>
+            <div className={'tw-search-result card shadow ' + className}>
                 <div className="card-body p-0">
                     {keyword &&
                     results &&

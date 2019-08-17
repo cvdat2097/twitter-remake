@@ -30,7 +30,6 @@ const Button = props => {
             <span className="btn-icon d-flex justify-content-center align-items-center">
                 {svgIcon || (
                     <img
-                        style={{ color: 'red' }}
                         className=""
                         src={active ? activeIcon || icon : icon}
                         alt="icon"

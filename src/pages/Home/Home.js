@@ -5,7 +5,7 @@ import Actions from '../../core/tweets/action';
 import NavBar from './NavBar';
 import HomeHeader from './HomeHeader';
 import SearchBar from '../../components/SearchBar';
-
+import TrendsList from '../../components/TrendsList';
 
 import './home.scss';
 
@@ -26,14 +26,14 @@ class Home extends React.Component {
                 </div>
                 <div className="col-md-4 d-none d-md-block">
                     <section id="suggestion">
-                        <div className="tw-header d-flex align-items-center justify-content-center">
+                        <div className="tw-header p-2">
                             <SearchBar />
                         </div>
-                        <div className="">SUGGESTION</div>
+                        <div className="p-2">
+                            <TrendsList />
+                        </div>
                     </section>
-                    <footer className="">
-                        &copy; Twitter - Remaked by D
-                    </footer>
+                    <footer className="">&copy; Twitter - Remaked by D</footer>
                 </div>
             </div>
         );

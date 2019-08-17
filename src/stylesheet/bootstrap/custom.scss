@@ -1,13 +1,5 @@
 @import '../style.scss';
 
-// Functions
-@function get-hover-color($color) {
-    @return lighten($color, 37%);
-}
-
-@function get-active-color($color) {
-    @return lighten($color, 32%);
-}
 
 // =============== CUSTOM VARIABLES ================
 // Grid breakpoints
@@ -34,12 +26,18 @@ $danger: map-get($tw-colors, 'tw-danger');
 
 $border-color: $gray-400;
 
+$border-radius-xl: 0.7rem !default;
+
 @import './scss/bootstrap.scss';
 
 // =============== CUSTOM CLASSES ================
 .fluid-container {
     max-width: map-get($grid-breakpoints, 'xl');
     margin: 0 auto;
+}
+
+.rounded-xl {
+    border-radius: $border-radius-xl !important;
 }
 
 @each $color, $value in $theme-colors {
@@ -58,6 +56,14 @@ $border-color: $gray-400;
 
         &:not(.disabled):active {
             background: get-active-color($value) !important;
+        }
+    }
+}
+
+@each $color, $value in $theme-colors {
+    .svg-fill-#{$color} {
+        path {
+            fill: $value !important;
         }
     }
 }

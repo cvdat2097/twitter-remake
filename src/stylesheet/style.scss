@@ -4,10 +4,25 @@ $tw-colors: (
     tw-primary: #1da1f2,
     tw-success: #17bf63,
     tw-danger: #e0245e,
+    tw-light: #f5f8fa,
 );
 
 :export {
     twPrimary: map-get($tw-colors, 'tw-primary');
     twSuccess: map-get($tw-colors, 'tw-success');
     twDanger: map-get($tw-colors, 'tw-danger');
+    twLight: map-get($tw-colors, 'tw-light');
+}
+
+// Functions
+@function get-hover-color($color) {
+    @return lighten($color, 40%);
+}
+
+@function get-active-color($color) {
+    @return lighten($color, 37%);
+}
+
+.clickable {
+    cursor: pointer;
 }
