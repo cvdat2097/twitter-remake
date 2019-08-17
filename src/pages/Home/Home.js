@@ -4,6 +4,7 @@ import Actions from '../../core/tweets/action';
 
 import NavBar from './NavBar';
 import HomeHeader from './HomeHeader';
+import HomeFooter from './HomeFooter';
 import SearchBar from '../../components/SearchBar';
 import TrendsList from '../../components/TrendsList';
 import FollowSuggestion from '../../components/FollowSuggestion';
@@ -37,7 +38,8 @@ class Home extends React.Component {
                             <FollowSuggestion />
                         </div>
                     </section>
-                    <footer className="">&copy; Twitter - Remaked by D</footer>
+
+                    <HomeFooter />
                 </div>
             </div>
         );

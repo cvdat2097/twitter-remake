@@ -12,7 +12,7 @@ const Trend = props => {
 
     return (
         <ListItem>
-            <div className="small text-muted">Trending in {location}</div>
+            <div className="xsmall text-muted">Trending in {location}</div>
             <div className="h6 font-weight-bold mb-1">{topic}</div>
             <div className="small text-muted">{tweets} Tweets</div>
         </ListItem>

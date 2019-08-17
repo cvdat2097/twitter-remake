@@ -1,6 +1,5 @@
 @import '../style.scss';
 
-
 // =============== CUSTOM VARIABLES ================
 // Grid breakpoints
 $grid-columns: 14;
@@ -38,6 +37,12 @@ $border-radius-xl: 0.7rem !default;
 
 .rounded-xl {
     border-radius: $border-radius-xl !important;
+}
+
+.xsmall {
+    @extend .small;
+
+    font-size: 70%;
 }
 
 @each $color, $value in $theme-colors {

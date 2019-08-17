@@ -13,9 +13,9 @@ class FollowSuggestion extends React.Component {
     generatePeople(people) {
         if (people) {
             return people.map((p, index) => (
-                <ListItem>
+                <ListItem key={index}>
                     <div className="d-flex justify-content-between align-items-center">
-                        <AccountSummary key={index} {...p} />
+                        <AccountSummary {...p} />
                         <div>
                             <button className="btn btn-outline-primary btn-sm rounded-pill font-weight-bold py-1 px-2">
                                 Follow
