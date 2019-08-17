@@ -16,22 +16,22 @@ class Home extends React.Component {
                 <div className="col-auto col-xl-3">
                     <NavBar />
                 </div>
-                <div className="col col-sm ">
+                <div className="col col-sm border-left border-right">
                     <section id="main">
-                        <div className="tw-header border">
+                        <div className="tw-header border-bottom">
                             <HomeHeader />
                         </div>
-                        <div className="border border-danger">POSTS</div>
+                        <div className="">POSTS</div>
                     </section>
                 </div>
                 <div className="col-md-4 d-none d-md-block">
                     <section id="suggestion">
-                        <div className="tw-header border border-primary d-flex align-items-center justify-content-center">
+                        <div className="tw-header d-flex align-items-center justify-content-center">
                             <SearchBar />
                         </div>
-                        <div className="border border-danger">SUGGESTION</div>
+                        <div className="">SUGGESTION</div>
                     </section>
-                    <footer className="border border-success">
+                    <footer className="">
                         &copy; Twitter - Remaked by D
                     </footer>
                 </div>
