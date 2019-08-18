@@ -41,8 +41,12 @@ class Home extends React.Component {
                             </div>
 
                             <div>
-                                {TWEETS.map((twt, index) => (
-                                    <Tweet key={index} {...twt} />
+                                {TWEETS.map(({ user, post }, index) => (
+                                    <Tweet
+                                        key={index}
+                                        user={user}
+                                        post={post}
+                                    />
                                 ))}
                             </div>
                         </div>

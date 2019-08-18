@@ -13,6 +13,8 @@ $tw-colors: (
     twSuccess: map-get($tw-colors, 'tw-success');
     twDanger: map-get($tw-colors, 'tw-danger');
     twLight: map-get($tw-colors, 'tw-light');
+
+    maxInnerPostWidth: 550px;
 }
 
 // Functions

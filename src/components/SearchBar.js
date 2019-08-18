@@ -7,26 +7,23 @@ import Actions from '../core/search/action';
 import request, { METHOD } from '../api/request';
 import ROUTES from '../api/routes';
 
-class SearchBar extends React.Component {
-    async search(keyword) {
-        const { gotResults } = this.props;
-        const results = await request(METHOD.GET, ROUTES.SEARCH, keyword);
+const search = async (keyword, callback) => {
+    const results = await request(METHOD.GET, ROUTES.SEARCH, keyword);
 
-        gotResults(results);
-    }
+    callback(results);
+};
 
-    render() {
-        const { results } = this.props;
+const SearchBar = props => {
+    const { results, gotResults } = props;
 
-        return (
-            <SearchBox
-                results={results}
-                onChange={keyword => keyword && this.search(keyword)}
-                placeholder="Search Twitter"
-            />
-        );
-    }
-}
+    return (
+        <SearchBox
+            results={results}
+            onChange={keyword => keyword && search(keyword, gotResults)}
+            placeholder="Search Twitter"
+        />
+    );
+};
 
 const mapStateToProps = ({ search }) => ({
     results: search.results,

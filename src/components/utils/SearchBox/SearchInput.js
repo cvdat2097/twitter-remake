@@ -6,19 +6,15 @@ import searchSVG from '../../../assets/svg/icons/search.svg';
 import closeSVG from '../../../assets/svg/icons/close.svg';
 import './search.scss';
 
-const INITIAL_STATE = {
-    keyword: '',
-    resultVisible: false,
-};
-
 class SearchInput extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = INITIAL_STATE;
-
         const { value } = this.props;
-        value && (this.state.keyword = value);
+        this.state = {
+            keyword: value || '',
+            resultVisible: false,
+        };
 
         this.changeKeyword = this.changeKeyword.bind(this);
         this.clearKeyword = this.clearKeyword.bind(this);

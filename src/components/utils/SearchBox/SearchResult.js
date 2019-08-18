@@ -20,72 +20,72 @@ const TextResult = props => {
     return <div className="p-2 clickable">{text}</div>;
 };
 
-class SearchResult extends React.Component {
-    generateTopipcResults(results) {
-        if (!results) {
-            return null;
-        }
-
-        return results.map((r, index) => <TopicResult key={index} {...r} />);
+const generateTopipcResults = results => {
+    if (!results) {
+        return null;
     }
 
-    generateAccountResults(results) {
-        if (!results) {
-            return null;
-        }
+    return results.map(({ topic }, index) => (
+        <TopicResult key={index} topic={topic} />
+    ));
+};
 
-        return results.map((r, index) => (
-            <AccountSummary
-                className="border-bottom p-2 clickable"
-                key={index}
-                {...r}
-            />
-        ));
+const generateAccountResults = results => {
+    if (!results) {
+        return null;
     }
 
-    render() {
-        const { className, results, keyword } = this.props;
+    return results.map(({ name, username, avatar, isVerified }, index) => (
+        <AccountSummary
+            className="border-bottom p-2 clickable"
+            key={index}
+            name={name}
+            username={username}
+            avatar={avatar}
+            isVerified={isVerified}
+        />
+    ));
+};
 
-        return (
-            <div
-                className={
-                    'tw-search-result card shadow ' +
-                    (className ? className : '')
-                }
-            >
-                <div className="card-body p-0">
-                    {keyword &&
-                    results &&
-                    (results.topics || results.accounts) ? (
-                        <>
-                            <div className="topic-results">
-                                {this.generateTopipcResults(results.topics)}
-                            </div>
+const SearchResult = props => {
+    const { className, results, keyword } = props;
 
-                            <div
-                                className="bg-light d-inline-block w-100"
-                                style={{
-                                    height: 8,
-                                }}
-                            />
-
-                            <div className="account-results">
-                                {this.generateAccountResults(results.accounts)}
-                            </div>
-
-                            <div>
-                                <TextResult text={`Go to @${keyword}`} />
-                            </div>
-                        </>
-                    ) : (
-                        <div className="text-muted small text-center p-3">
-                            Try searching for people, topics, or keywords
+    return (
+        <div
+            className={
+                'tw-search-result card shadow ' + (className ? className : '')
+            }
+        >
+            <div className="card-body p-0">
+                {keyword && results && (results.topics || results.accounts) ? (
+                    <>
+                        <div className="topic-results">
+                            {generateTopipcResults(results.topics)}
                         </div>
-                    )}
-                </div>
+
+                        <div
+                            className="bg-light d-inline-block w-100"
+                            style={{
+                                height: 8,
+                            }}
+                        />
+
+                        <div className="account-results">
+                            {generateAccountResults(results.accounts)}
+                        </div>
+
+                        <div>
+                            <TextResult text={`Go to @${keyword}`} />
+                        </div>
+                    </>
+                ) : (
+                    <div className="text-muted small text-center p-3">
+                        Try searching for people, topics, or keywords
+                    </div>
+                )}
             </div>
-        );
-    }
-}
+        </div>
+    );
+};
 
 export default SearchResult;

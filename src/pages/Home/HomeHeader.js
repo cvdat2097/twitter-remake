@@ -45,12 +45,7 @@ class HomeHeader extends React.Component {
                 <h1 className="h5 m-0 font-weight-bold">{caption}</h1>
 
                 <div className="position-relative ml-auto">
-                    <Button
-                        onClick={() => {
-                            this.openTweetsPopover();
-                        }}
-                        icon={topTweet}
-                    />
+                    <Button onClick={this.openTweetsPopover} icon={topTweet} />
 
                     <Popover
                         visible={popoverTweetsVisible}

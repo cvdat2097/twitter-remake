@@ -20,7 +20,7 @@ import { ReactComponent as MoreSVG } from '../../assets/svg/more.svg';
 import appStyle from '../../stylesheet/style.scss';
 
 const navLinkClassName = 'd-none d-lg-block mx-3 font-weight-bold';
-const navLinks = [
+const navButtons = [
     {
         icon: <HomeSVG />,
         activeIcon: <ActiveHomeSVG />,
@@ -68,46 +68,51 @@ const navLinks = [
     },
 ];
 
-class NavBar extends React.Component {
-    generateButtons(buttons) {
-        return buttons.map((btn, index) => {
+const generateButtons = buttons => {
+    return buttons.map(
+        ({ icon, activeIcon, activeColor, title, active }, index) => {
             return (
                 <div key={index} className="mb-2 nav-item">
-                    <Button className="large" {...btn} />
+                    <Button
+                        className="large"
+                        icon={icon}
+                        activeIcon={activeIcon}
+                        activeColor={activeColor}
+                        title={title}
+                        active={active}
+                    />
                 </div>
             );
-        });
-    }
+        }
+    );
+};
 
-    render() {
-        return (
-            <section id="nav-bar" className="py-1">
-                <div className="tw-header d-lg-block d-flex flex-column align-items-center">
-                    <Button className="large" icon={<LogoSVG />} />
-                </div>
+const NavBar = () => (
+    <section id="nav-bar" className="py-1">
+        <div className="tw-header d-lg-block d-flex flex-column align-items-center">
+            <Button className="large" icon={<LogoSVG />} />
+        </div>
 
-                <div className="d-lg-block d-flex flex-column align-items-center nav">
-                    {this.generateButtons(navLinks)}
-                </div>
+        <div className="d-lg-block d-flex flex-column align-items-center nav">
+            {generateButtons(navButtons)}
+        </div>
 
-                <div className="d-lg-block d-flex justify-content-center mt-4">
-                    <button
-                        className="btn btn-primary rounded-pill d-inline-flex justify-content-center"
-                        style={{ padding: 10 }}
-                    >
-                        <span className={navLinkClassName}>Tweet</span>
-                        <img
-                            className="d-lg-none"
-                            src={tweetSVG}
-                            alt="tweet-button"
-                            width="24"
-                            height="24"
-                        />
-                    </button>
-                </div>
-            </section>
-        );
-    }
-}
+        <div className="d-lg-block d-flex justify-content-center mt-4">
+            <button
+                className="btn btn-primary rounded-pill d-inline-flex justify-content-center"
+                style={{ padding: 10 }}
+            >
+                <span className={navLinkClassName}>Tweet</span>
+                <img
+                    className="d-lg-none"
+                    src={tweetSVG}
+                    alt="tweet-button"
+                    width="24"
+                    height="24"
+                />
+            </button>
+        </div>
+    </section>
+);
 
 export default NavBar;

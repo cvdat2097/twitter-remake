@@ -35,20 +35,25 @@ const TrendFooter = () => {
     return <div className="text-primary clickable small">Show more</div>;
 };
 
-class TrendsList extends React.Component {
-    generateTrends(trends) {
-        if (trends) {
-            return trends.map((tr, index) => <Trend key={index} {...tr} />);
-        }
+const generateTrends = trends => {
+    if (trends) {
+        return trends.map(({ location, topic, tweets }, index) => (
+            <Trend
+                key={index}
+                location={location}
+                topic={topic}
+                tweets={tweets}
+            />
+        ));
     }
+};
 
-    render() {
-        return (
-            <ListGroup header={<TrendHeader />} footer={<TrendFooter />}>
-                {this.generateTrends(TRENDS)}
-            </ListGroup>
-        );
-    }
-}
+const TrendsList = () => {
+    return (
+        <ListGroup header={<TrendHeader />} footer={<TrendFooter />}>
+            {generateTrends(TRENDS)}
+        </ListGroup>
+    );
+};
 
 export default TrendsList;

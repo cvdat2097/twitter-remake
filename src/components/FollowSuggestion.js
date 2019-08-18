@@ -9,31 +9,34 @@ const Footer = () => {
     return <div className="text-primary clickable small">Show more</div>;
 };
 
-class FollowSuggestion extends React.Component {
-    generatePeople(people) {
-        if (people) {
-            return people.map((p, index) => (
-                <ListItem key={index}>
-                    <div className="d-flex justify-content-between align-items-center">
-                        <AccountSummary {...p} />
-                        <div>
-                            <button className="btn btn-outline-primary btn-sm rounded-pill font-weight-bold py-1 px-2">
-                                Follow
-                            </button>
-                        </div>
+const generatePeople = people => {
+    if (people) {
+        return people.map(({ name, username, avatar, isVerified }, index) => (
+            <ListItem key={index}>
+                <div className="d-flex justify-content-between align-items-center">
+                    <AccountSummary
+                        name={name}
+                        username={username}
+                        avatar={avatar}
+                        isVerified={isVerified}
+                    />
+                    <div>
+                        <button className="btn btn-outline-primary btn-sm rounded-pill font-weight-bold py-1 px-2">
+                            Follow
+                        </button>
                     </div>
-                </ListItem>
-            ));
-        }
+                </div>
+            </ListItem>
+        ));
     }
+};
 
-    render() {
-        return (
-            <ListGroup header="Who to follow" footer={<Footer />}>
-                {this.generatePeople(PEOPLE_TO_FOLLOW)}
-            </ListGroup>
-        );
-    }
-}
+const FollowSuggestion = () => {
+    return (
+        <ListGroup header="Who to follow" footer={<Footer />}>
+            {generatePeople(PEOPLE_TO_FOLLOW)}
+        </ListGroup>
+    );
+};
 
 export default FollowSuggestion;

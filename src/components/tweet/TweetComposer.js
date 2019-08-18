@@ -9,15 +9,13 @@ import emoticonSVG from '../../assets/svg/icons/emoticon.svg';
 import addSVG from '../../assets/svg/icons/add.svg';
 import './tweetcomposer.scss';
 
-const INITIAL_STATE = {
-    post: '',
-};
-
 class TweetComposer extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = INITIAL_STATE;
+        this.state = {
+            post: '',
+        };
 
         this.handleInputChange = this.handleInputChange.bind(this);
     }
