@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { SearchBox } from './utils/SearchBox';
@@ -23,6 +24,11 @@ const SearchBar = props => {
             placeholder="Search Twitter"
         />
     );
+};
+
+SearchBar.propTypes = {
+    results: PropTypes.object,
+    gotResults: PropTypes.func,
 };
 
 const mapStateToProps = ({ search }) => ({

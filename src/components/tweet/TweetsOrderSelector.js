@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Menu, MenuItem } from '../utils/Menu';
 
@@ -69,6 +70,12 @@ const TweetsOrderSelector = props => {
             </Menu>
         </div>
     );
+};
+
+TweetsOrderSelector.propTypes = {
+    tweetsOrder: PropTypes.oneOf([TWEETS_ORDER.DEFAULT, TWEETS_ORDER.LASTEST])
+        .isRequired,
+    sortTweets: PropTypes.func.isRequired,
 };
 
 export default TweetsOrderSelector;

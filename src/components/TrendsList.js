@@ -1,9 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { ListGroup, ListItem } from '../components/utils/ListGroup';
 import { Button } from '../components/utils/Button';
-
-import { TRENDS } from '../mock/trends';
 
 import { ReactComponent as SettingsSVG } from '../assets/svg/icons/settings.svg';
 
@@ -48,12 +47,23 @@ const generateTrends = trends => {
     }
 };
 
-const TrendsList = () => {
+const TrendsList = props => {
+    const { trends } = props;
     return (
         <ListGroup header={<TrendHeader />} footer={<TrendFooter />}>
-            {generateTrends(TRENDS)}
+            {generateTrends(trends)}
         </ListGroup>
     );
+};
+
+TrendsList.propTypes = {
+    trends: PropTypes.arrayOf(
+        PropTypes.shape({
+            location: PropTypes.string,
+            topic: PropTypes.string,
+            tweets: PropTypes.string,
+        })
+    ),
 };
 
 export default TrendsList;

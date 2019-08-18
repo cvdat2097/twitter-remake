@@ -14,6 +14,7 @@ import Tweet from '../../components/tweet/Tweet';
 import './home.scss';
 
 import { TWEETS } from '../../mock/tweet';
+import { TRENDS } from '../../mock/trends';
 
 class Home extends React.Component {
     render() {
@@ -58,7 +59,7 @@ class Home extends React.Component {
                             <SearchBar />
                         </div>
                         <div className="p-2">
-                            <TrendsList />
+                            <TrendsList trends={TRENDS} />
                         </div>
                         <div className="p-2">
                             <FollowSuggestion />

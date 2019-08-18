@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import verifiedSvg from '../../../assets/svg/icons/verified-account.svg';
 
@@ -44,6 +45,14 @@ const AccountSummary = props => {
             </div>
         </div>
     );
+};
+
+AccountSummary.propTypes = {
+    name: PropTypes.string.isRequired,
+    username: PropTypes.string.isRequired,
+    avatar: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+    isVerified: PropTypes.bool,
+    className: PropTypes.string,
 };
 
 export default AccountSummary;

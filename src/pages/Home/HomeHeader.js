@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { Button } from '../../components/utils/Button';
@@ -72,6 +73,12 @@ const getCaptionFromTweetsOrder = tweetsOrder => {
         default:
             return 'Home';
     }
+};
+
+HomeHeader.propTypes = {
+    caption: PropTypes.string,
+    tweetsOrder: PropTypes.oneOf([TWEETS_ORDER.DEFAULT, TWEETS_ORDER.LASTEST]),
+    sortTweets: PropTypes.func,
 };
 
 const mapStateToProps = ({ tweets }) => {

@@ -1,6 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Button } from '../utils/Button';
+
+import { MEDIA_TYPE } from '../../constants/tweets';
 
 import { ReactComponent as DownSVG } from '../../assets/svg/icons/down.svg';
 import { ReactComponent as CommentSVG } from '../../assets/svg/icons/comment.svg';
@@ -9,28 +12,30 @@ import { ReactComponent as LikeSVG } from '../../assets/svg/icons/like.svg';
 import { ReactComponent as ShareSVG } from '../../assets/svg/icons/share.svg';
 import { ReactComponent as AnalyticSVG } from '../../assets/svg/icons/analytic.svg';
 import verifiedSvg from '../../assets/svg/icons/verified-account.svg';
-
 import style from '../../stylesheet/style.scss';
 
 const TweetMedia = props => {
     const { mediaType, media } = props;
 
-    if (mediaType === 'image') {
-        return (
-            <div
-                className="position-relative clickable"
-                style={{ maxWidth: style.maxInnerPostWidth }}
-            >
-                <img
-                    className="img-fluid rounded-lg border"
-                    src={media}
-                    alt=""
-                />
-            </div>
-        );
-    }
+    switch (mediaType) {
+        case MEDIA_TYPE.IMAGE:
+            return (
+                <div
+                    className="position-relative clickable"
+                    style={{ maxWidth: style.maxInnerPostWidth }}
+                >
+                    <img
+                        className="img-fluid rounded-lg border"
+                        src={media}
+                        alt=""
+                    />
+                </div>
+            );
 
-    return null;
+        case MEDIA_TYPE.TEXT:
+        default:
+            return null;
+    }
 };
 
 const Tweet = props => {
@@ -115,6 +120,41 @@ const Tweet = props => {
             </div>
         </div>
     );
+};
+
+Tweet.propTypes = {
+    user: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        username: PropTypes.string.isRequired,
+        isVerified: PropTypes.bool,
+        avatar: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+    }),
+
+    post: PropTypes.shape({
+        time: PropTypes.string.isRequired,
+        mediaType: PropTypes.oneOf([MEDIA_TYPE.TEXT, MEDIA_TYPE.IMAGE])
+            .isRequired,
+        content: PropTypes.string,
+        media: PropTypes.oneOfType([PropTypes.string]),
+        likes: PropTypes.string,
+        comments: PropTypes.string,
+    }),
+};
+
+Tweet.defaultProps = {
+    user: {
+        name: '',
+        username: '',
+        isVerified: false,
+        avatar: './img/default-avatar.png',
+    },
+
+    post: {
+        time: '',
+        mediaType: MEDIA_TYPE.TEXT,
+        content: '',
+        media: null,
+    },
 };
 
 export default Tweet;

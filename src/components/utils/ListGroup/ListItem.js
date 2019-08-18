@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './listgroup.scss';
 
@@ -11,4 +12,13 @@ const ListItem = props => {
         </div>
     );
 };
+
+ListItem.propTypes = {
+    children: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.element,
+        PropTypes.arrayOf(PropTypes.element),
+    ]),
+};
+
 export default ListItem;

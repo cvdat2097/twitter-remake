@@ -1,1 +1,2 @@
-export { default as Popover, PopoverPosition } from './Popover';
+export { default as Popover } from './Popover';
+export { default as PopoverPosition } from './PopoverPosition';

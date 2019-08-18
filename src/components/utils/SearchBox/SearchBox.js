@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import SearchResult from './SearchResult';
 
@@ -6,13 +7,12 @@ import searchSVG from '../../../assets/svg/icons/search.svg';
 import closeSVG from '../../../assets/svg/icons/close.svg';
 import './search.scss';
 
-class SearchInput extends React.Component {
+class SearchBox extends React.Component {
     constructor(props) {
         super(props);
 
-        const { value } = this.props;
         this.state = {
-            keyword: value || '',
+            keyword: '',
             resultVisible: false,
         };
 
@@ -94,4 +94,10 @@ class SearchInput extends React.Component {
     }
 }
 
-export default SearchInput;
+SearchBox.propTypes = {
+    onChange: PropTypes.func,
+    placeholder: PropTypes.string,
+    results: PropTypes.object,
+};
+
+export default SearchBox;

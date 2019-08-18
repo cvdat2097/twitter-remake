@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const MenuItem = props => {
     const { title, icon, description, onClick } = props;
@@ -24,6 +25,13 @@ const MenuItem = props => {
             </div>
         </button>
     );
+};
+
+MenuItem.propTypes = {
+    title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+    icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+    description: PropTypes.string,
+    onClick: PropTypes.func,
 };
 
 export default MenuItem;

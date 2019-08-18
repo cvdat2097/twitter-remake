@@ -1,11 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export const PopoverPosition = {
-    TOP_RIGHT: Symbol('TOP RIGHT'),
-    TOP_LEFT: Symbol('TOP LEFT'),
-    BOTTOM_RIGHT: Symbol('BOTTOM RIGHT'),
-    BOTTOM_LEFT: Symbol('BOTTOM LEFT'),
-};
+import PopoverPosition from './PopoverPosition';
 
 class Popover extends React.Component {
     constructor(props) {
@@ -37,11 +33,13 @@ class Popover extends React.Component {
                 };
 
             case PopoverPosition.BOTTOM_LEFT:
-            default:
                 return {
                     bottom: 0,
                     left: 0,
                 };
+
+            default:
+                throw new Error('Invalid Position Type');
         }
     }
 
@@ -85,5 +83,22 @@ class Popover extends React.Component {
         return null;
     }
 }
+
+Popover.propTypes = {
+    position: PropTypes.oneOf([
+        PopoverPosition.BOTTOM_LEFT,
+        PopoverPosition.BOTTOM_RIGHT,
+        PopoverPosition.TOP_LEFT,
+        PopoverPosition.TOP_RIGHT,
+    ]),
+    onClose: PropTypes.func,
+    children: PropTypes.any,
+    visible: PropTypes.bool,
+};
+
+Popover.defaultProps = {
+    position: PopoverPosition.BOTTOM_LEFT,
+    visible: false,
+};
 
 export default Popover;

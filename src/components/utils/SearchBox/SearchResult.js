@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { AccountSummary } from '../AccountSummary';
 
@@ -49,6 +50,7 @@ const generateAccountResults = results => {
 
 const SearchResult = props => {
     const { className, results, keyword } = props;
+    const { topics, accounts } = results;
 
     return (
         <div
@@ -57,10 +59,10 @@ const SearchResult = props => {
             }
         >
             <div className="card-body p-0">
-                {keyword && results && (results.topics || results.accounts) ? (
+                {keyword && (topics || accounts) ? (
                     <>
                         <div className="topic-results">
-                            {generateTopipcResults(results.topics)}
+                            {generateTopipcResults(topics)}
                         </div>
 
                         <div
@@ -71,7 +73,7 @@ const SearchResult = props => {
                         />
 
                         <div className="account-results">
-                            {generateAccountResults(results.accounts)}
+                            {generateAccountResults(accounts)}
                         </div>
 
                         <div>
@@ -86,6 +88,15 @@ const SearchResult = props => {
             </div>
         </div>
     );
+};
+
+SearchResult.propTypes = {
+    className: PropTypes.string,
+    results: PropTypes.shape({
+        topics: PropTypes.array,
+        accounts: PropTypes.array,
+    }),
+    keyword: PropTypes.string,
 };
 
 export default SearchResult;

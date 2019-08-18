@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import ButtonType from './ButtonType';
 
@@ -67,6 +68,28 @@ const Button = props => {
             {children}
         </button>
     );
+};
+
+Button.propTypes = {
+    outlined: PropTypes.bool,
+    disabled: PropTypes.bool,
+    icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+    activeIcon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+    active: PropTypes.bool,
+    activeColor: PropTypes.string,
+    title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+    link: PropTypes.string,
+    className: PropTypes.string,
+    onClick: PropTypes.func,
+    type: PropTypes.oneOf([
+        ButtonType.DANGER,
+        ButtonType.DARK,
+        ButtonType.LIGHT,
+        ButtonType.PRIMARY,
+        ButtonType.SUCCESS,
+        ButtonType.WARNING,
+    ]),
+    children: PropTypes.element,
 };
 
 export default Button;
