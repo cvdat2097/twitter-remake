@@ -10,15 +10,19 @@ import { ReactComponent as ShareSVG } from '../../assets/svg/icons/share.svg';
 import { ReactComponent as AnalyticSVG } from '../../assets/svg/icons/analytic.svg';
 import verifiedSvg from '../../assets/svg/icons/verified-account.svg';
 
+const MAX_INNER_POST_WIDTH = 550;
+
 class TweetMedia extends React.Component {
     render() {
         const { mediaType, media } = this.props;
 
         if (mediaType === 'image') {
             return (
-                <div className="position-relative clickable">
+                <div
+                    className="position-relative clickable"
+                    style={{ maxWidth: MAX_INNER_POST_WIDTH }}
+                >
                     <img
-                        style={{ maxWidth: 550 }}
                         className="img-fluid rounded-lg border"
                         src={media}
                         alt=""
@@ -84,7 +88,7 @@ class Tweet extends React.Component {
 
                     <div
                         className="d-flex justify-content-between mt-3"
-                        style={{ maxWidth: 550 }}
+                        style={{ maxWidth: MAX_INNER_POST_WIDTH }}
                     >
                         <Button
                             className="small text-secondary position-relative"

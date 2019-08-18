@@ -29,14 +29,16 @@ class Home extends React.Component {
                         </div>
 
                         <div className="d-flex flex-column">
-                            <TweetComposer />
+                            <div className="d-none d-md-block">
+                                <TweetComposer />
 
-                            <div
-                                className="bg-light d-inline-block w-100"
-                                style={{
-                                    height: 10,
-                                }}
-                            />
+                                <div
+                                    className="bg-light d-inline-block w-100"
+                                    style={{
+                                        height: 10,
+                                    }}
+                                />
+                            </div>
 
                             <div>
                                 {TWEETS.map((twt, index) => (
