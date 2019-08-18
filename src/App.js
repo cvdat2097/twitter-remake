@@ -11,11 +11,13 @@ window.store = store;
 class App extends React.Component {
     render() {
         return (
-            <Provider store={store}>
-                <div className="fluid-container">
-                    <HomePage />
-                </div>
-            </Provider>
+            <React.StrictMode>
+                <Provider store={store}>
+                    <div className="fluid-container">
+                        <HomePage />
+                    </div>
+                </Provider>
+            </React.StrictMode>
         );
     }
 }
