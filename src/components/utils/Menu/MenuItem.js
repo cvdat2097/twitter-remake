@@ -2,12 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const MenuItem = props => {
-    const { title, icon, description, onClick } = props;
+    const { title, icon, description, onClick, className } = props;
 
     return (
         <button
             onClick={onClick}
-            className="btn btn-light btn-block text-left shadow-none rounded-0 d-flex align-items-start m-0 px-3"
+            className={
+                'btn btn-light btn-block text-left shadow-none rounded-0 d-flex align-items-start m-0 px-3 ' +
+                className
+            }
         >
             {icon ? (
                 <img
@@ -31,6 +34,7 @@ MenuItem.propTypes = {
     title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
     icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
     description: PropTypes.string,
+    className: PropTypes.string,
     onClick: PropTypes.func,
 };
 
