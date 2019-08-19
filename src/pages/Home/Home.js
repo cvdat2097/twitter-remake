@@ -25,7 +25,7 @@ class Home extends React.Component {
                 </div>
                 <div className="col col-sm border-left border-right">
                     <section id="main">
-                        <div className="tw-header border-bottom">
+                        <div className="tw-header bg-white border-bottom position-sticky fixed-top">
                             <HomeHeader />
                         </div>
 
@@ -55,7 +55,7 @@ class Home extends React.Component {
                 </div>
                 <div className="col-md-4 d-none d-md-block">
                     <section id="suggestion">
-                        <div className="tw-header p-2">
+                        <div className="tw-header p-2 bg-white position-sticky fixed-top">
                             <SearchBar />
                         </div>
                         <div className="p-2">

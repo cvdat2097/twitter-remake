@@ -88,7 +88,7 @@ const generateButtons = buttons => {
 };
 
 const NavBar = () => (
-    <section id="nav-bar" className="py-1">
+    <section id="nav-bar" className="position-sticky fixed-top py-1">
         <div className="tw-header d-lg-block d-flex flex-column align-items-center">
             <Button className="large" icon={<LogoSVG />} />
         </div>
