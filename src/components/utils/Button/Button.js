@@ -5,6 +5,8 @@ import ButtonType from './ButtonType';
 
 import './button.scss';
 
+// TODO: Support link button
+
 const Button = props => {
     const {
         outlined,
@@ -29,14 +31,14 @@ const Button = props => {
     const buttonType = type ? type : ButtonType.PRIMARY;
 
     return (
-        <button
+        <span
             onClick={onClick}
             className={
                 (outlined
                     ? ` btn-outline-${buttonType}`
                     : ` btn-transparent-${buttonType}`) +
                 (disabled ? ' disabled' : '') +
-                ' tw-btn btn rounded-pill d-inline-flex align-items-center shadow-none ' +
+                ' tw-btn btn rounded-pill clickable d-inline-flex align-items-center shadow-none ' +
                 className
             }
         >
@@ -66,7 +68,7 @@ const Button = props => {
             )}
 
             {children}
-        </button>
+        </span>
     );
 };
 

@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+
 import Actions from '../../core/tweets/action';
 
-import NavBar from './NavBar';
 import HomeHeader from './HomeHeader';
 import HomeFooter from './HomeFooter';
 import SearchBar from '../../components/SearchBar';
@@ -19,10 +20,7 @@ import { TRENDS } from '../../mock/trends';
 class Home extends React.Component {
     render() {
         return (
-            <div id="home-page-container" className="row no-gutters">
-                <div className="col-auto col-xl-3">
-                    <NavBar />
-                </div>
+            <>
                 <div className="col col-sm border-left border-right">
                     <section id="main">
                         <div className="tw-header bg-white border-bottom position-sticky fixed-top">
@@ -68,7 +66,7 @@ class Home extends React.Component {
 
                     <HomeFooter />
                 </div>
-            </div>
+            </>
         );
     }
 }
@@ -80,7 +78,9 @@ const mapDispatchToProps = dispatch => ({
     },
 });
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Home);
+export default withRouter(
+    connect(
+        mapStateToProps,
+        mapDispatchToProps
+    )(Home)
+);
