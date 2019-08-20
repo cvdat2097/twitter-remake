@@ -1,11 +1,22 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import ButtonType from './ButtonType';
 
 import './button.scss';
 
-// TODO: Support link button
+const ButtonTag = props => {
+    const { href, children, ...otherProps } = props;
+
+    return href ? (
+        <Link to={href} {...otherProps}>
+            {children}
+        </Link>
+    ) : (
+        <button {...otherProps}>{children}</button>
+    );
+};
 
 const Button = props => {
     const {
@@ -16,11 +27,11 @@ const Button = props => {
         active,
         activeColor,
         title,
-        link,
         className,
         onClick,
         type,
         children,
+        href,
     } = props;
     let svgIcon = null;
 
@@ -31,7 +42,8 @@ const Button = props => {
     const buttonType = type ? type : ButtonType.PRIMARY;
 
     return (
-        <span
+        <ButtonTag
+            href={href}
             onClick={onClick}
             className={
                 (outlined
@@ -61,14 +73,8 @@ const Button = props => {
                 </span>
             )}
 
-            {link && (
-                <a href={link} className="stretched-link">
-                    {' '}
-                </a>
-            )}
-
             {children}
-        </span>
+        </ButtonTag>
     );
 };
 
@@ -80,7 +86,6 @@ Button.propTypes = {
     active: PropTypes.bool,
     activeColor: PropTypes.string,
     title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    link: PropTypes.string,
     className: PropTypes.string,
     onClick: PropTypes.func,
     type: PropTypes.oneOf([
@@ -91,6 +96,7 @@ Button.propTypes = {
         ButtonType.SUCCESS,
         ButtonType.WARNING,
     ]),
+    href: PropTypes.string,
     children: PropTypes.element,
 };
 

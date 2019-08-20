@@ -20,11 +20,8 @@ const generateButtons = (buttons, activePath) => {
                         activeColor={activeColor}
                         title={title}
                         active={activePath === path}
-                    >
-                        {Boolean(path) ? (
-                            <Link to={path} className="stretched-link" />
-                        ) : null}
-                    </Button>
+                        href={path}
+                    />
                 </div>
             );
         }
