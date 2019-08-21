@@ -12,7 +12,7 @@ import FollowSuggestion from '../../components/FollowSuggestion';
 import TweetComposer from '../../components/tweet/TweetComposer';
 import Tweet from '../../components/tweet/Tweet';
 
-import './home.scss';
+import './homepage.scss';
 
 import { TWEETS } from '../../mock/tweet';
 import { TRENDS } from '../../mock/trends';
