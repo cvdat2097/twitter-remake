@@ -5,7 +5,7 @@ import { Button } from '../utils/Button';
 import { Menu, MenuItem } from '../utils/Menu';
 import { Popover, PopoverPosition } from '../utils/Popover';
 
-import { MEDIA_TYPE } from '../../constants/tweets';
+import { MEDIA_TYPE } from '../../constants/tweet';
 
 import { ReactComponent as DownSVG } from '../../assets/svg/icons/down.svg';
 import { ReactComponent as CommentSVG } from '../../assets/svg/icons/comment.svg';

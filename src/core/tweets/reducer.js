@@ -1,5 +1,5 @@
 import ACTION_TYPE from './type';
-import { TWEETS_ORDER } from '../../constants/tweets';
+import { TWEETS_ORDER } from '../../constants/tweet';
 
 const INITIAL_STATE = {
     tweetsOrder: TWEETS_ORDER.DEFAULT,

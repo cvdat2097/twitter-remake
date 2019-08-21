@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Menu, MenuItem, MenuDivider } from '../utils/Menu';
 
-import { TWEETS_ORDER } from '../../constants/tweets';
+import { TWEETS_ORDER } from '../../constants/tweet';
 
 import defaultSVG from '../../assets/svg/tweetsOrder/tweetsOrder-default.svg';
 import lastestSVG from '../../assets/svg/tweetsOrder/tweetsOrder-lastest.svg';
