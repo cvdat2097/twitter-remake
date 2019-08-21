@@ -1,0 +1,12 @@
+@import '../../../stylesheet//style.scss';
+
+.tw-menu-item {
+
+    &:hover {
+        background: map-get($tw-colors, 'tw-light-hover');
+    }
+
+    &:active {
+        background: map-get($tw-colors, 'tw-light-active');
+    }
+}

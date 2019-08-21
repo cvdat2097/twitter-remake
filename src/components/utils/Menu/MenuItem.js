@@ -1,14 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import './menu.scss';
+
 const MenuItem = props => {
     const { title, icon, description, onClick, className } = props;
 
     return (
-        <button
+        <span
             onClick={onClick}
             className={
-                'btn btn-light btn-block text-left shadow-none rounded-0 d-flex align-items-start m-0 px-3 ' +
+                'clickable tw-menu-item text-left medium shadow-none rounded-0 d-flex align-items-start m-0 py-2 px-3 ' +
                 className
             }
         >
@@ -26,7 +28,7 @@ const MenuItem = props => {
                 <span>{title}</span>
                 <small className="small text-muted">{description}</small>
             </div>
-        </button>
+        </span>
     );
 };
 

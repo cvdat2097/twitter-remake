@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Menu, MenuItem } from '../utils/Menu';
+import { Menu, MenuItem, MenuDivider } from '../utils/Menu';
 
 import { TWEETS_ORDER } from '../../constants/tweets';
 
@@ -60,6 +60,7 @@ const TweetsOrderSelector = props => {
                 </span>
             </div>
             <Menu>
+                <MenuDivider />
                 <MenuItem
                     icon={exportSVG}
                     title={title}

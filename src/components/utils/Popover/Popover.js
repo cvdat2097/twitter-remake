@@ -63,7 +63,7 @@ class Popover extends React.Component {
                 <>
                     <div
                         onClick={this.handlePopoverClick}
-                        className="d-inline-flex position-absolute shadow"
+                        className="d-inline-flex position-absolute shadow bg-white overflow-hidden"
                         style={{
                             ...this.styleFromPosition,
                             zIndex: 9999,

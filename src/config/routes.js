@@ -90,11 +90,6 @@ const ROUTE_CONFIG = [
         component: () => <div>Profile Page</div>,
     },
     {
-        path: '#',
-        title: <span className={navLinkClassName}>More</span>,
-        icon: MoreSVG,
-    },
-    {
         name: 'NOT_FOUND',
         component: NotFound,
     },
