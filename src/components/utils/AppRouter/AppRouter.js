@@ -22,17 +22,12 @@ const getRouteComponents = routes => {
 
         const subRouteComponents = subRoutes && getRouteComponents(subRoutes);
 
-        // Use Array because <Switch /> must have <Route /> or <Redirect /> as children.
+        // Use Array because children of <Switch /> must be <Route /> or <Redirect />
         return [subRouteComponents, routeComponent];
     });
 };
 
-const AppRouter = ({ routes }) => (
-    <Switch>
-        {getRouteComponents(routes)}
-        {/* <Route render={() => <div>404 NOT FOUND</div>} /> */}
-    </Switch>
-);
+const AppRouter = ({ routes }) => <Switch>{getRouteComponents(routes)}</Switch>;
 
 AppRouter.propTypes = {
     routes: PropTypes.arrayOf(

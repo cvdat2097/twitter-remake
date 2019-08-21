@@ -6,8 +6,6 @@ import { AppRouter } from './components/utils/AppRouter';
 import NavBar from './pages/NavBar';
 import routes from './config/routes';
 
-import './App.scss';
-
 import store from './core/store';
 
 window.store = store;
