@@ -65,18 +65,16 @@ class HomeFooter extends React.Component {
                     >
                         <Menu>
                             <MenuItem
-                                title={<span className="small">About</span>}
+                                title={<span className="big">About</span>}
                             />
                             <MenuItem
-                                title={<span className="small">Status</span>}
+                                title={<span className="big">Status</span>}
                             />
                             <MenuItem
-                                title={
-                                    <span className="small">Businesses</span>
-                                }
+                                title={<span className="big">Businesses</span>}
                             />
                             <MenuItem
-                                title={<span className="small">Developer</span>}
+                                title={<span className="big">Developer</span>}
                             />
                         </Menu>
                     </Popover>

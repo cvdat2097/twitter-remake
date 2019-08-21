@@ -28,64 +28,64 @@ const MoreMenu = ({ visible, onClose, currentAccount }) => {
             position={PopoverPosition.BOTTOM_LEFT}
         >
             <div className="card">
-            <Menu
-                style={{
-                    minWidth: 230,
-                }}
-            >
-                <div className="px-3 py-2">
-                    <div className="d-flex align-items-center justify-content-between">
-                        <img
-                            className="rounded-circle"
-                            src="./img/account-0.jpg"
-                            alt=""
-                            widht="40"
-                            height="40"
-                        />
-                        <Button outlined className="small" icon={addSVG} />
+                <Menu
+                    style={{
+                        minWidth: 230,
+                    }}
+                >
+                    <div className="px-3 py-2">
+                        <div className="d-flex align-items-center justify-content-between">
+                            <img
+                                className="rounded-circle"
+                                src="./img/account-0.jpg"
+                                alt=""
+                                widht="40"
+                                height="40"
+                            />
+                            <Button outlined className="small" icon={addSVG} />
+                        </div>
+                        <div>
+                            <span className="font-weight-bold mt-2 mb-0 d-block">
+                                {name}
+                            </span>
+                            <span className="medium text-secondary m-0">
+                                @{username}
+                            </span>
+                        </div>
                     </div>
-                    <div>
-                        <span className="font-weight-bold mt-2 mb-0 d-block">
-                            {name}
-                        </span>
-                        <span className="medium text-secondary m-0">
-                            @{username}
-                        </span>
-                    </div>
-                </div>
-                <MenuDivider />
-                <MenuItem
-                    className="text-nowrap"
-                    title="Moments"
-                    icon={momentSVG}
-                />
-                <MenuItem
-                    className="text-nowrap"
-                    title="Twitter Ads"
-                    icon={adsSVG}
-                />
-                <MenuItem
-                    className="text-nowrap"
-                    title="Analytics"
-                    icon={analyticSVG}
-                />
-                <MenuDivider />
-                <MenuItem
-                    className="text-nowrap"
-                    title="Settings and Privacy"
-                    icon={settingsSVG}
-                />
-                <MenuItem
-                    className="text-nowrap"
-                    title="Help Centre"
-                    icon={helpSVG}
-                />
-                <MenuItem
-                    className="text-nowrap"
-                    title="Display"
-                    icon={analyticSVG}
-                />
-            </Menu>
+                    <MenuDivider />
+                    <MenuItem
+                        className="text-nowrap"
+                        title="Moments"
+                        icon={momentSVG}
+                    />
+                    <MenuItem
+                        className="text-nowrap"
+                        title="Twitter Ads"
+                        icon={adsSVG}
+                    />
+                    <MenuItem
+                        className="text-nowrap"
+                        title="Analytics"
+                        icon={analyticSVG}
+                    />
+                    <MenuDivider />
+                    <MenuItem
+                        className="text-nowrap"
+                        title="Settings and Privacy"
+                        icon={settingsSVG}
+                    />
+                    <MenuItem
+                        className="text-nowrap"
+                        title="Help Centre"
+                        icon={helpSVG}
+                    />
+                    <MenuItem
+                        className="text-nowrap"
+                        title="Display"
+                        icon={analyticSVG}
+                    />
+                </Menu>
             </div>
         </Popover>
     );
@@ -126,7 +126,7 @@ class NavBar extends React.Component {
         super(props);
 
         this.state = {
-            moreMenuVisible: true,
+            moreMenuVisible: false,
         };
 
         this.showMoreMenu = this.showMoreMenu.bind(this);
@@ -201,8 +201,8 @@ class NavBar extends React.Component {
     }
 }
 
-const mapStateToProps = ({ account: { currentAccount } }) => ({
-    currentAccount,
+const mapStateToProps = ({ account: { current } }) => ({
+    currentAccount: current,
 });
 
 export default withRouter(connect(mapStateToProps)(NavBar));

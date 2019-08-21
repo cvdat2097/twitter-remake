@@ -1,7 +1,7 @@
 // import ACTION_TYPE from './type';
 
 const INITIAL_STATE = {
-    currentAccount: {
+    current: {
         name: 'Admin',
         username: 'admin1564',
     },
