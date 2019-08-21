@@ -27,7 +27,9 @@ class App extends React.Component {
                                     <NavBar />
                                 </div>
 
-                                <AppRouter routes={routes} />
+                                <div className="col col-xl-11">
+                                    <AppRouter routes={routes} />
+                                </div>
                             </div>
                         </div>
                     </BrowserRouter>

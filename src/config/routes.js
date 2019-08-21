@@ -15,15 +15,17 @@ import { ReactComponent as ActiveListsSVG } from '../assets/svg/lists-active.svg
 import { ReactComponent as MoreSVG } from '../assets/svg/more.svg';
 
 import HomePage from '../pages/Home';
+import NotFound from '../pages/NotFound';
 
 const navLinkClassName = 'd-none d-lg-block mx-3 font-weight-bold';
 
-export default [
+const ROUTE_CONFIG = [
     {
         path: '/',
         redirect: '/home',
     },
     {
+        name: 'HOME',
         path: '/home',
         title: <span className={navLinkClassName}>Home</span>,
         icon: HomeSVG,
@@ -41,6 +43,7 @@ export default [
         ],
     },
     {
+        name: 'EXPLORE',
         path: '/explore',
         title: <span className={navLinkClassName}>Explore</span>,
         icon: ExploreSVG,
@@ -48,6 +51,7 @@ export default [
         component: () => <div>Explore Page</div>,
     },
     {
+        name: 'NOTIFICATION',
         path: '/notification',
         title: <span className={navLinkClassName}>Notifications</span>,
         icon: NotificationsSVG,
@@ -55,6 +59,7 @@ export default [
         component: () => <div>Notification Page</div>,
     },
     {
+        name: 'MESSAGES',
         path: '/messages',
         title: <span className={navLinkClassName}>Messages</span>,
         icon: MessagesSVG,
@@ -62,6 +67,7 @@ export default [
         component: () => <div>Messages Page</div>,
     },
     {
+        name: 'BOOKMARK',
         path: '/bookmark',
         title: <span className={navLinkClassName}>Bookmarks</span>,
         icon: BookmarksSVG,
@@ -69,6 +75,7 @@ export default [
         component: () => <div>Bookmark Page</div>,
     },
     {
+        name: 'LIST',
         icon: ListsSVG,
         title: <span className={navLinkClassName}>List</span>,
         activeIcon: ActiveListsSVG,
@@ -76,6 +83,7 @@ export default [
         component: () => <div>List Page</div>,
     },
     {
+        name: 'PROFILE',
         path: '/profile',
         title: <span className={navLinkClassName}>Profile</span>,
         icon: MoreSVG,
@@ -86,4 +94,14 @@ export default [
         title: <span className={navLinkClassName}>More</span>,
         icon: MoreSVG,
     },
+    {
+        name: 'NOT_FOUND',
+        component: NotFound,
+    },
 ];
+
+export const PATHNAME = {
+    SEARCH: '/search',
+};
+
+export default ROUTE_CONFIG;

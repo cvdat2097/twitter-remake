@@ -20,7 +20,7 @@ import { TRENDS } from '../../mock/trends';
 class Home extends React.Component {
     render() {
         return (
-            <>
+            <div className="row no-gutters">
                 <div className="col col-sm border-left border-right">
                     <section id="main">
                         <div className="tw-header bg-white border-bottom position-sticky fixed-top">
@@ -66,7 +66,7 @@ class Home extends React.Component {
 
                     <HomeFooter />
                 </div>
-            </>
+            </div>
         );
     }
 }

@@ -30,14 +30,14 @@ const getRouteComponents = routes => {
 const AppRouter = ({ routes }) => (
     <Switch>
         {getRouteComponents(routes)}
-        <Route render={() => <div>404 NOT FOUND</div>} />
+        {/* <Route render={() => <div>404 NOT FOUND</div>} /> */}
     </Switch>
 );
 
 AppRouter.propTypes = {
     routes: PropTypes.arrayOf(
         PropTypes.shape({
-            path: PropTypes.string.isRequired,
+            path: PropTypes.string,
             component: PropTypes.elementType,
             render: PropTypes.elementType,
             redirect: PropTypes.string,
