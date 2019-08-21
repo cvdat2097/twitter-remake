@@ -235,7 +235,7 @@ Tweet.defaultProps = {
         name: '',
         username: '',
         isVerified: false,
-        avatar: './img/default-avatar.png',
+        avatar: '/img/default-avatar.png',
     },
 
     post: {

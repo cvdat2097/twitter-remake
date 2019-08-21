@@ -4,13 +4,13 @@ export const TWEETS = [
             name: 'React JS',
             username: 'reactjs_dev',
             isVerified: true,
-            avatar: './img/account-1.png',
+            avatar: '/img/account-1.png',
         },
         post: {
             time: '1m',
             mediaType: 'image',
             content: 'Dolor sit amet consectetur adipisicing elit. ',
-            media: './img/tweet.jpg',
+            media: '/img/tweet.jpg',
             likes: '12',
             comments: '6',
         },
@@ -20,7 +20,7 @@ export const TWEETS = [
             name: 'JavaScript',
             username: 'javascript234',
             isVerified: true,
-            avatar: './img/account-2.png',
+            avatar: '/img/account-2.png',
         },
         post: {
             time: '3h',
@@ -37,7 +37,7 @@ export const TWEETS = [
             name: 'C# Network',
             username: 'csharp_dk33',
             isVerified: false,
-            avatar: './img/account-3.png',
+            avatar: '/img/account-3.png',
         },
         post: {
             time: '14h',

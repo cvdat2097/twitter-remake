@@ -37,7 +37,7 @@ const MoreMenu = ({ visible, onClose, currentAccount }) => {
                         <div className="d-flex align-items-center justify-content-between">
                             <img
                                 className="rounded-circle"
-                                src="./img/account-0.jpg"
+                                src="/img/account-0.jpg"
                                 alt=""
                                 widht="40"
                                 height="40"
@@ -152,8 +152,6 @@ class NavBar extends React.Component {
         } = this.props;
         const { moreMenuVisible } = this.state;
         const currentRootPath = URLHelper.getRootPath(pathname);
-
-        console.log(this.props);
 
         return (
             <section id="nav-bar" className="position-sticky fixed-top py-1">
