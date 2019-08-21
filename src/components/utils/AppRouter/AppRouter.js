@@ -2,36 +2,35 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Route, Redirect, Switch } from 'react-router';
 
-const AppRoute = ({ routes }) => {
-    return routes.map((r, index) => {
-        const { path, component, render, redirect } = r;
+const getRouteComponents = routes => {
+    return routes.map(r => {
+        const { path, component, redirect, routes: subRoutes } = r;
+
+        let routeComponent = null;
 
         if (redirect) {
-            return (
+            routeComponent = (
                 <Route
-                    key={index}
                     exact
                     path={path}
                     render={() => <Redirect to={redirect} />}
                 />
             );
+        } else {
+            routeComponent = <Route exact path={path} component={component} />;
         }
 
-        if (render) {
-            return <Route key={index} path={path} render={render} />;
-        }
+        const subRouteComponents = subRoutes && getRouteComponents(subRoutes);
 
-        if (component) {
-            return <Route key={index} path={path} component={component} />;
-        }
-
-        return null;
+        // Use Array because <Switch /> must have <Route /> or <Redirect /> as children.
+        return [subRouteComponents, routeComponent];
     });
 };
 
 const AppRouter = ({ routes }) => (
     <Switch>
-        <AppRoute routes={routes} />
+        {getRouteComponents(routes)}
+        <Route render={() => <div>404 NOT FOUND</div>} />
     </Switch>
 );
 
