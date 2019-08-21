@@ -1,7 +1,5 @@
 import React from 'react';
 
-import appStyle from '../stylesheet/style.scss';
-
 import { ReactComponent as HomeSVG } from '../assets/svg/home.svg';
 import { ReactComponent as ActiveHomeSVG } from '../assets/svg/home-active.svg';
 import { ReactComponent as ExploreSVG } from '../assets/svg/explore.svg';
@@ -22,55 +20,66 @@ const navLinkClassName = 'd-none d-lg-block mx-3 font-weight-bold';
 
 export default [
     {
+        path: '/',
+        redirect: '/home',
+    },
+    {
         path: '/home',
-        icon: <HomeSVG />,
-        activeIcon: <ActiveHomeSVG />,
-        activeColor: appStyle.twPrimary,
         title: <span className={navLinkClassName}>Home</span>,
-        component: <HomePage />,
+        icon: HomeSVG,
+        activeIcon: ActiveHomeSVG,
+        component: HomePage,
+        routes: [
+            {
+                path: '/home/hihi',
+                component: () => <span>hihi</span>,
+            },
+        ],
     },
     {
-        icon: <ExploreSVG />,
-        activeIcon: <ActiveExploreSVG />,
-        activeColor: appStyle.twPrimary,
-        title: <span className={navLinkClassName}>Explore</span>,
         path: '/explore',
+        title: <span className={navLinkClassName}>Explore</span>,
+        icon: ExploreSVG,
+        activeIcon: ActiveExploreSVG,
+        render: () => <div>Explore Page</div>,
     },
     {
-        icon: <NotificationsSVG />,
-        activeIcon: <ActiveNotificationsSVG />,
-        activeColor: appStyle.twPrimary,
-        title: <span className={navLinkClassName}>Notifications</span>,
         path: '/notification',
+        title: <span className={navLinkClassName}>Notifications</span>,
+        icon: NotificationsSVG,
+        activeIcon: ActiveNotificationsSVG,
+        render: () => <div>Notification Page</div>,
     },
     {
-        icon: <MessagesSVG />,
-        activeIcon: <ActiveMessagesSVG />,
-        activeColor: appStyle.twPrimary,
-        title: <span className={navLinkClassName}>Messages</span>,
         path: '/messages',
+        title: <span className={navLinkClassName}>Messages</span>,
+        icon: MessagesSVG,
+        activeIcon: ActiveMessagesSVG,
+        render: () => <div>Messages Page</div>,
     },
     {
-        icon: <BookmarksSVG />,
-        activeIcon: <ActiveBookmarksSVG />,
-        activeColor: appStyle.twPrimary,
-        title: <span className={navLinkClassName}>Bookmarks</span>,
         path: '/bookmark',
+        title: <span className={navLinkClassName}>Bookmarks</span>,
+        icon: BookmarksSVG,
+        activeIcon: ActiveBookmarksSVG,
+        render: () => <div>Bookmark Page</div>,
     },
     {
-        icon: <ListsSVG />,
-        activeIcon: <ActiveListsSVG />,
-        activeColor: appStyle.twPrimary,
+        icon: ListsSVG,
         title: <span className={navLinkClassName}>List</span>,
+        activeIcon: ActiveListsSVG,
         path: '/list',
+        render: () => <div>List Page</div>,
     },
     {
-        icon: <MoreSVG />,
-        title: <span className={navLinkClassName}>Profile</span>,
         path: '/profile',
+        title: <span className={navLinkClassName}>Profile</span>,
+        icon: MoreSVG,
+        render: () => <div>Profile Page</div>,
     },
     {
-        icon: <MoreSVG />,
+        path: '#',
         title: <span className={navLinkClassName}>More</span>,
+        icon: MoreSVG,
     },
 ];

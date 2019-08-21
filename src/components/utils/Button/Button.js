@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import ButtonType from './ButtonType';
 
+import appStyle from '../../../stylesheet/style.scss';
 import './button.scss';
 
 const ButtonTag = props => {
@@ -67,7 +68,11 @@ const Button = props => {
             {title && (
                 <span
                     className="h5 m-0"
-                    style={active ? { color: activeColor } : null}
+                    style={
+                        active
+                            ? { color: activeColor || appStyle.twPrimary }
+                            : null
+                    }
                 >
                     {title}
                 </span>

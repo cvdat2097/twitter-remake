@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import Routes from '../config/routes';
 import { Button } from '../components/utils/Button';
@@ -10,20 +10,27 @@ import { ReactComponent as LogoSVG } from '../assets/svg/logo.svg';
 
 const generateButtons = (buttons, activePath) => {
     return buttons.map(
-        ({ icon, activeIcon, activeColor, title, path }, index) => {
-            return (
-                <div key={index} className="mb-2 nav-item">
-                    <Button
-                        className="large position-relative"
-                        icon={icon}
-                        activeIcon={activeIcon}
-                        activeColor={activeColor}
-                        title={title}
-                        active={activePath === path}
-                        href={path}
-                    />
-                </div>
-            );
+        ({ icon, activeIcon, activeColor, title, path, redirect }, index) => {
+            const Icon = icon;
+            const ActiveIcon = activeIcon;
+
+            if (path && !redirect) {
+                return (
+                    <div key={index} className="mb-2 nav-item">
+                        <Button
+                            className="large position-relative"
+                            icon={Icon && <Icon />}
+                            activeIcon={ActiveIcon && <ActiveIcon />}
+                            activeColor={activeColor}
+                            title={title}
+                            active={activePath === path}
+                            href={path}
+                        />
+                    </div>
+                );
+            }
+
+            return null;
         }
     );
 };
@@ -41,9 +48,7 @@ const NavBar = props => {
     return (
         <section id="nav-bar" className="position-sticky fixed-top py-1">
             <div className="tw-header d-lg-block d-flex flex-column align-items-center">
-                <Button className="large position-relative" icon={<LogoSVG />}>
-                    <Link to="/" className="stretched-link" />
-                </Button>
+                <Button className="large" icon={<LogoSVG />} href="/" />
             </div>
 
             <div className="d-lg-block d-flex flex-column align-items-center nav">
