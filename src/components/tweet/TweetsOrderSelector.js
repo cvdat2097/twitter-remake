@@ -16,7 +16,7 @@ const getDisplayData = (tweetsOrder, sortTweets) => {
             return {
                 caption: 'Latest Tweets show up as they happen',
                 icon: lastestSVG,
-                onClick: () => sortTweets(TWEETS_ORDER.DEFAULT),
+                handleTweetOrderChange: () => sortTweets(TWEETS_ORDER.DEFAULT),
                 option: {
                     title: 'Go back to Home',
                     description: 'You’ll see the top Tweets first.',
@@ -28,7 +28,7 @@ const getDisplayData = (tweetsOrder, sortTweets) => {
             return {
                 caption: 'Home shows you top Tweets first',
                 icon: defaultSVG,
-                onClick: () => sortTweets(TWEETS_ORDER.LASTEST),
+                handleTweetOrderChange: () => sortTweets(TWEETS_ORDER.LASTEST),
                 option: {
                     title: 'See lastest Tweets instead',
                     description:
@@ -45,7 +45,7 @@ const TweetsOrderSelector = props => {
         caption,
         icon,
         option: { title, description },
-        onClick,
+        handleTweetOrderChange,
     } = getDisplayData(tweetsOrder, sortTweets);
 
     return (
@@ -65,7 +65,7 @@ const TweetsOrderSelector = props => {
                     icon={exportSVG}
                     title={title}
                     description={description}
-                    onClick={onClick}
+                    onClick={handleTweetOrderChange}
                 />
                 <MenuItem icon={settingsSVG} title="View content preferences" />
             </Menu>

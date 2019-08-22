@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -11,58 +11,39 @@ import TweetActions from '../../core/tweets/action';
 
 import topTweet from '../../assets/svg/top-tweet.svg';
 
-const INITIAL_STATE = {
-    popoverTweetsVisible: false,
-};
+const HomeHeader = props => {
+    const { caption, sortTweets, tweetsOrder } = props;
+    const [orderVisibility, setOrderVisibility] = useState(false);
 
-class HomeHeader extends React.Component {
-    constructor(props) {
-        super(props);
+    const handleTweetsOrderClick = () => {
+        setOrderVisibility(true);
+    };
 
-        this.state = INITIAL_STATE;
+    const handleTweetsPopoverClose = () => {
+        setOrderVisibility(false);
+    };
 
-        this.openTweetsPopover = this.openTweetsPopover.bind(this);
-        this.closeTweetsPopover = this.closeTweetsPopover.bind(this);
-    }
+    return (
+        <div className="h-100 d-flex align-items-center p-3">
+            <h1 className="h5 m-0 font-weight-bold">{caption}</h1>
 
-    openTweetsPopover() {
-        this.setState({
-            popoverTweetsVisible: true,
-        });
-    }
+            <div className="position-relative ml-auto">
+                <Button onClick={handleTweetsOrderClick} icon={topTweet} />
 
-    closeTweetsPopover() {
-        this.setState({
-            popoverTweetsVisible: false,
-        });
-    }
-
-    render() {
-        const { caption, sortTweets, tweetsOrder } = this.props;
-        const { popoverTweetsVisible } = this.state;
-
-        return (
-            <div className="h-100 d-flex align-items-center p-3">
-                <h1 className="h5 m-0 font-weight-bold">{caption}</h1>
-
-                <div className="position-relative ml-auto">
-                    <Button onClick={this.openTweetsPopover} icon={topTweet} />
-
-                    <Popover
-                        visible={popoverTweetsVisible}
-                        onClose={this.closeTweetsPopover}
-                        position={PopoverPosition.TOP_RIGHT}
-                    >
-                        <TweetsOrderSelector
-                            sortTweets={sortTweets}
-                            tweetsOrder={tweetsOrder}
-                        />
-                    </Popover>
-                </div>
+                <Popover
+                    visible={orderVisibility}
+                    onClose={handleTweetsPopoverClose}
+                    position={PopoverPosition.TOP_RIGHT}
+                >
+                    <TweetsOrderSelector
+                        sortTweets={sortTweets}
+                        tweetsOrder={tweetsOrder}
+                    />
+                </Popover>
             </div>
-        );
-    }
-}
+        </div>
+    );
+};
 
 const getCaptionFromTweetsOrder = tweetsOrder => {
     switch (tweetsOrder) {

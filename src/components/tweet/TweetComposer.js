@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Button } from '../utils/Button';
 
@@ -9,82 +9,68 @@ import emoticonSVG from '../../assets/svg/icons/emoticon.svg';
 import addSVG from '../../assets/svg/icons/add.svg';
 import './tweetcomposer.scss';
 
-class TweetComposer extends React.Component {
-    constructor(props) {
-        super(props);
+const TweetComposer = () => {
+    const [post, setPost] = useState('');
 
-        this.state = {
-            post: '',
-        };
+    const handleInputChange = event => {
+        setPost(event.target.value);
+    };
 
-        this.handleInputChange = this.handleInputChange.bind(this);
-    }
+    return (
+        <div className="tw-composer d-flex px-3 py-2">
+            <img
+                className="rounded-circle mr-1"
+                src="/img/account-0.jpg"
+                alt=""
+                width="50"
+                height="50"
+            />
 
-    handleInputChange(event) {
-        this.setState({
-            post: event.target.value,
-        });
-    }
-
-    render() {
-        const { post } = this.state;
-
-        return (
-            <div className="tw-composer d-flex px-3 py-2">
-                <img
-                    className="rounded-circle mr-1"
-                    src="/img/account-0.jpg"
-                    alt=""
-                    width="50"
-                    height="50"
-                />
-
-                <div className="flex-grow-1">
+            <div className="flex-grow-1">
+                <div>
+                    <textarea
+                        className="form-control shadow-none big"
+                        placeholder="What's happening?"
+                        value={post}
+                        onChange={handleInputChange}
+                        rows="1"
+                    />
+                </div>
+                <div className="d-flex align-items-center py-2">
                     <div>
-                        <textarea
-                            className="form-control shadow-none big"
-                            placeholder="What's happening?"
-                            value={post}
-                            onChange={this.handleInputChange}
-                            rows="1"
-                        />
+                        <Button icon={photoSVG} />
+                        <Button icon={gifSVG} />
+                        <Button icon={pollSVG} />
+                        <Button icon={emoticonSVG} />
                     </div>
-                    <div className="d-flex align-items-center py-2">
-                        <div>
-                            <Button icon={photoSVG} />
-                            <Button icon={gifSVG} />
-                            <Button icon={pollSVG} />
-                            <Button icon={emoticonSVG} />
-                        </div>
 
-                        <div
-                            className="bg-secondary d-inline-block ml-auto mr-3"
-                            style={{
-                                width: 2,
-                                height: 30,
-                            }}
+                    <div
+                        className="bg-secondary d-inline-block ml-auto mr-3"
+                        style={{
+                            width: 2,
+                            height: 30,
+                        }}
+                    />
+                    <div className="">
+                        <Button
+                            className="mr-2 small"
+                            icon={addSVG}
+                            outlined
+                            disabled={post ? false : true}
                         />
-                        <div className="">
-                            <Button
-                                className="mr-2 small"
-                                icon={addSVG}
-                                outlined
-                                disabled={post ? false : true}
-                            />
-                            <button
-                                className={
-                                    'btn btn-primary rounded-pill ' +
-                                    (post ? '' : 'disabled')
-                                }
-                            >
-                                Tweet
-                            </button>
-                        </div>
+                        <button
+                            className={
+                                'btn btn-primary rounded-pill ' +
+                                (post ? '' : 'disabled')
+                            }
+                        >
+                            Tweet
+                        </button>
                     </div>
                 </div>
             </div>
-        );
-    }
-}
+        </div>
+    );
+};
 
 export default TweetComposer;

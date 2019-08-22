@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -121,83 +121,64 @@ const generateButtons = (buttons, activePath) => {
 // TODO: Remove this
 const navLinkClassName = 'd-none d-lg-block mx-3 font-weight-bold';
 
-class NavBar extends React.Component {
-    constructor(props) {
-        super(props);
+const NavBar = props => {
+    const {
+        location: { pathname },
+        currentAccount,
+    } = props;
+    const [moreMenuVisibility, setMoreMenuVisibility] = useState(false);
+    const currentRootPath = URLHelper.getRootPath(pathname);
 
-        this.state = {
-            moreMenuVisible: false,
-        };
+    const handleMoreMenuClick = () => {
+        setMoreMenuVisibility(true);
+    };
 
-        this.showMoreMenu = this.showMoreMenu.bind(this);
-        this.hideMoreMenu = this.hideMoreMenu.bind(this);
-    }
+    const handleMoreMenuClose = () => {
+        setMoreMenuVisibility(false);
+    };
 
-    showMoreMenu() {
-        this.setState({
-            moreMenuVisible: true,
-        });
-    }
+    return (
+        <section id="nav-bar" className="position-sticky fixed-top py-1">
+            <div className="tw-header d-lg-block d-flex flex-column align-items-center">
+                <Button className="large" icon={<LogoSVG />} href="/" />
+            </div>
 
-    hideMoreMenu() {
-        this.setState({
-            moreMenuVisible: false,
-        });
-    }
+            <div className="d-lg-block d-flex flex-column align-items-center nav">
+                {generateButtons(Routes, currentRootPath)}
 
-    render() {
-        const {
-            location: { pathname },
-            currentAccount,
-        } = this.props;
-        const { moreMenuVisible } = this.state;
-        const currentRootPath = URLHelper.getRootPath(pathname);
-
-        return (
-            <section id="nav-bar" className="position-sticky fixed-top py-1">
-                <div className="tw-header d-lg-block d-flex flex-column align-items-center">
-                    <Button className="large" icon={<LogoSVG />} href="/" />
+                <div className="mb-2 nav-item position-relative">
+                    <Button
+                        className="large position-relative"
+                        icon={<MoreSVG />}
+                        title={<span className={navLinkClassName}>More</span>}
+                        onClick={handleMoreMenuClick}
+                    />
+                    <MoreMenu
+                        visible={moreMenuVisibility}
+                        onClose={handleMoreMenuClose}
+                        currentAccount={currentAccount}
+                    />
                 </div>
+            </div>
 
-                <div className="d-lg-block d-flex flex-column align-items-center nav">
-                    {generateButtons(Routes, currentRootPath)}
-
-                    <div className="mb-2 nav-item position-relative">
-                        <Button
-                            className="large position-relative"
-                            icon={<MoreSVG />}
-                            title={
-                                <span className={navLinkClassName}>More</span>
-                            }
-                            onClick={this.showMoreMenu}
-                        />
-                        <MoreMenu
-                            visible={moreMenuVisible}
-                            onClose={this.hideMoreMenu}
-                            currentAccount={currentAccount}
-                        />
-                    </div>
-                </div>
-
-                <div className="d-lg-block d-flex justify-content-center mt-4">
-                    <button
-                        className="btn btn-primary rounded-pill d-inline-flex justify-content-center"
-                        style={{ padding: 10 }}
-                    >
-                        <span className={navLinkClassName}>Tweet</span>
-                        <img
-                            className="d-lg-none"
-                            src={tweetSVG}
-                            alt="tweet-button"
-                            width="24"
-                            height="24"
-                        />
-                    </button>
-                </div>
-            </section>
-        );
-    }
-}
+            <div className="d-lg-block d-flex justify-content-center mt-4">
+                <button
+                    className="btn btn-primary rounded-pill d-inline-flex justify-content-center"
+                    style={{ padding: 10 }}
+                >
+                    <span className={navLinkClassName}>Tweet</span>
+                    <img
+                        className="d-lg-none"
+                        src={tweetSVG}
+                        alt="tweet-button"
+                        width="24"
+                        height="24"
+                    />
+                </button>
+            </div>
+        </section>
+    );
+};
 
 const mapStateToProps = ({ account: { current } }) => ({
     currentAccount: current,

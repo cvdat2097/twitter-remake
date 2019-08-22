@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { Button } from '../utils/Button';
@@ -47,169 +47,146 @@ const TweetMedia = props => {
     }
 };
 
-class Tweet extends React.Component {
-    constructor(props) {
-        super(props);
+const Tweet = props => {
+    const {
+        user: { name, username, isVerified, avatar },
+        post: { time, mediaType, content, media, likes, comments },
+    } = props;
 
-        this.state = {
-            tweetMenuVisible: false,
-        };
+    const [menuVisibility, setMenuVisibility] = useState(false);
 
-        this.showTweetMenu = this.showTweetMenu.bind(this);
-        this.hideTweetMenu = this.hideTweetMenu.bind(this);
-    }
+    const handleOpenMenuClick = () => {
+        setMenuVisibility(true);
+    };
 
-    showTweetMenu() {
-        this.setState({
-            tweetMenuVisible: true,
-        });
-    }
+    const handlePopoverClose = () => {
+        setMenuVisibility(false);
+    };
 
-    hideTweetMenu() {
-        this.setState({
-            tweetMenuVisible: false,
-        });
-    }
+    return (
+        <div className="d-flex border-bottom mb-2 p-2">
+            <div
+                style={{
+                    flexShrink: 0,
+                    minWidth: 25,
+                    width: '20vw',
+                    maxWidth: 60,
+                    maxHeight: 60,
+                }}
+            >
+                <img className="rounded-circle img-fluid" src={avatar} alt="" />
+            </div>
 
-    render() {
-        const {
-            user: { name, username, isVerified, avatar },
-            post: { time, mediaType, content, media, likes, comments },
-        } = this.props;
+            <div className="p-1 w-100">
+                <div className="d-flex">
+                    <span className="font-weight-bold medium mr-1">{name}</span>
+                    {isVerified ? (
+                        <img
+                            className="align-baseline"
+                            src={verifiedSvg}
+                            alt=""
+                            width="16"
+                            height="16"
+                        />
+                    ) : null}
+                    <span className="text-secondary medium ml-1">
+                        @{username}
+                    </span>
+                    <span className="text-secondary medium">
+                        &nbsp;· {time}
+                    </span>
 
-        const { tweetMenuVisible } = this.state;
-
-        return (
-            <div className="d-flex border-bottom mb-2 p-2">
-                <div
-                    style={{
-                        flexShrink: 0,
-                        minWidth: 25,
-                        width: '20vw',
-                        maxWidth: 60,
-                        maxHeight: 60,
-                    }}
-                >
-                    <img
-                        className="rounded-circle img-fluid"
-                        src={avatar}
-                        alt=""
-                    />
-                </div>
-
-                <div className="p-1 w-100">
-                    <div className="d-flex">
-                        <span className="font-weight-bold medium mr-1">
-                            {name}
-                        </span>
-                        {isVerified ? (
-                            <img
-                                className="align-baseline"
-                                src={verifiedSvg}
-                                alt=""
-                                width="16"
-                                height="16"
-                            />
-                        ) : null}
-                        <span className="text-secondary medium ml-1">
-                            @{username}
-                        </span>
-                        <span className="text-secondary medium">
-                            &nbsp;· {time}
-                        </span>
-
-                        <div className="ml-auto position-relative">
-                            <Button
-                                className="small"
-                                icon={<DownSVG />}
-                                onClick={this.showTweetMenu}
-                            />
-
-                            <Popover
-                                visible={tweetMenuVisible}
-                                position={PopoverPosition.TOP_RIGHT}
-                                onClose={this.hideTweetMenu}
-                            >
-                                <Menu>
-                                    <MenuItem
-                                        className="text-nowrap small"
-                                        title="Show less often"
-                                        icon={sadEmoticonSvg}
-                                    />
-                                    <MenuItem
-                                        className="text-nowrap small"
-                                        title="Embed Tweet"
-                                        icon={embedSvg}
-                                    />
-                                    <MenuItem
-                                        className="text-nowrap small"
-                                        title={`Unfollow @${username}`}
-                                        icon={unfollowSvg}
-                                    />
-                                    <MenuItem
-                                        className="text-nowrap small"
-                                        title={`Mute @${username}`}
-                                        icon={muteSvg}
-                                    />
-                                    <MenuItem
-                                        className="text-nowrap small"
-                                        title={`Block @${username}`}
-                                        icon={blockSvg}
-                                    />
-
-                                    <MenuItem
-                                        className="text-nowrap small"
-                                        title="Report Tweet"
-                                        icon={reportSvg}
-                                    />
-                                </Menu>
-                            </Popover>
-                        </div>
-                    </div>
-                    <div className="medium mb-2">{content}</div>
-
-                    <TweetMedia mediaType={mediaType} media={media} />
-
-                    <div
-                        className="d-flex justify-content-between mt-3"
-                        style={{ maxWidth: style.maxInnerPostWidth }}
-                    >
-                        <Button
-                            className="small text-secondary position-relative"
-                            icon={<CommentSVG />}
-                        >
-                            <span
-                                className="position-absolute small"
-                                style={{ left: '100%' }}
-                            >
-                                {comments}
-                            </span>
-                        </Button>
+                    <div className="ml-auto position-relative">
                         <Button
                             className="small"
-                            icon={<RetweetSVG />}
-                            type="success"
+                            icon={<DownSVG />}
+                            onClick={handleOpenMenuClick}
                         />
-                        <Button
-                            className="small text-secondary position-relative"
-                            icon={<LikeSVG />}
-                            type="danger"
+
+                        <Popover
+                            visible={menuVisibility}
+                            position={PopoverPosition.TOP_RIGHT}
+                            onClose={handlePopoverClose}
                         >
-                            <span
-                                className="position-absolute small"
-                                style={{ left: '100%' }}
-                            >
-                                {likes}
-                            </span>
-                        </Button>
-                        <Button className="small" icon={<ShareSVG />} />
-                        <Button className="small" icon={<AnalyticSVG />} />
+                            <Menu>
+                                <MenuItem
+                                    className="text-nowrap small"
+                                    title="Show less often"
+                                    icon={sadEmoticonSvg}
+                                />
+                                <MenuItem
+                                    className="text-nowrap small"
+                                    title="Embed Tweet"
+                                    icon={embedSvg}
+                                />
+                                <MenuItem
+                                    className="text-nowrap small"
+                                    title={`Unfollow @${username}`}
+                                    icon={unfollowSvg}
+                                />
+                                <MenuItem
+                                    className="text-nowrap small"
+                                    title={`Mute @${username}`}
+                                    icon={muteSvg}
+                                />
+                                <MenuItem
+                                    className="text-nowrap small"
+                                    title={`Block @${username}`}
+                                    icon={blockSvg}
+                                />
+
+                                <MenuItem
+                                    className="text-nowrap small"
+                                    title="Report Tweet"
+                                    icon={reportSvg}
+                                />
+                            </Menu>
+                        </Popover>
                     </div>
                 </div>
+                <div className="medium mb-2">{content}</div>
+
+                <TweetMedia mediaType={mediaType} media={media} />
+
+                <div
+                    className="d-flex justify-content-between mt-3"
+                    style={{ maxWidth: style.maxInnerPostWidth }}
+                >
+                    <Button
+                        className="small text-secondary position-relative"
+                        icon={<CommentSVG />}
+                    >
+                        <span
+                            className="position-absolute small"
+                            style={{ left: '100%' }}
+                        >
+                            {comments}
+                        </span>
+                    </Button>
+                    <Button
+                        className="small"
+                        icon={<RetweetSVG />}
+                        type="success"
+                    />
+                    <Button
+                        className="small text-secondary position-relative"
+                        icon={<LikeSVG />}
+                        type="danger"
+                    >
+                        <span
+                            className="position-absolute small"
+                            style={{ left: '100%' }}
+                        >
+                            {likes}
+                        </span>
+                    </Button>
+                    <Button className="small" icon={<ShareSVG />} />
+                    <Button className="small" icon={<AnalyticSVG />} />
+                </div>
             </div>
-        );
-    }
-}
+        </div>
+    );
+};
 
 Tweet.propTypes = {
     user: PropTypes.shape({
