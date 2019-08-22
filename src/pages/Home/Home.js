@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import Actions from '../../core/tweets/action';
+import TweetActions from '../../core/tweets/action';
 
 import HomeHeader from './HomeHeader';
 import HomeFooter from './HomeFooter';
@@ -71,12 +71,10 @@ class Home extends React.Component {
     }
 }
 
-const mapStateToProps = state => ({ tweets: state.tweets });
-const mapDispatchToProps = dispatch => ({
-    sortTweets(order) {
-        dispatch(Actions.changeTweetsOrder(order));
-    },
-});
+const mapStateToProps = ({ tweets }) => ({ tweets });
+const mapDispatchToProps = {
+    sortTweets: TweetActions.sortTweets,
+};
 
 export default withRouter(
     connect(

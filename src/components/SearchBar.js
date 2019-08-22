@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { SearchBox } from './utils/SearchBox';
 
-import Actions from '../core/search/action';
+import SearchActions from '../core/search/action';
 import request, { METHOD } from '../api/request';
 import ROUTES from '../api/routes';
 
@@ -15,12 +15,12 @@ const search = async (keyword, callback) => {
 };
 
 const SearchBar = props => {
-    const { results, gotResults } = props;
+    const { results, gotSearchResults } = props;
 
     return (
         <SearchBox
             results={results}
-            onChange={keyword => keyword && search(keyword, gotResults)}
+            onChange={keyword => keyword && search(keyword, gotSearchResults)}
             placeholder="Search Twitter"
         />
     );
@@ -28,15 +28,15 @@ const SearchBar = props => {
 
 SearchBar.propTypes = {
     results: PropTypes.object,
-    gotResults: PropTypes.func,
+    gotSearchResults: PropTypes.func,
 };
 
 const mapStateToProps = ({ search }) => ({
     results: search.results,
 });
-const mapDispatchToProps = dispatch => ({
-    gotResults: results => dispatch(Actions.gotSearchResults(results)),
-});
+const mapDispatchToProps = {
+    gotSearchResults: SearchActions.gotSearchResults,
+};
 
 export default connect(
     mapStateToProps,

@@ -2,7 +2,7 @@ import ACTION_TYPE from './type';
 import { TWEETS_ORDER } from '../../constants/tweet';
 
 export default {
-    changeTweetsOrder: order => {
+    sortTweets: order => {
         let invalidType = false;
         Object.keys(TWEETS_ORDER).forEach(type => {
             if (TWEETS_ORDER[type] === order) {

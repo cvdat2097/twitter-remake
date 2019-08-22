@@ -7,7 +7,7 @@ import { Popover, PopoverPosition } from '../../components/utils/Popover';
 import TweetsOrderSelector from '../../components/tweet/TweetsOrderSelector';
 
 import { TWEETS_ORDER } from '../../constants/tweet';
-import Actions from '../../core/tweets/action';
+import TweetActions from '../../core/tweets/action';
 
 import topTweet from '../../assets/svg/top-tweet.svg';
 
@@ -90,11 +90,9 @@ const mapStateToProps = ({ tweets }) => {
         caption,
     };
 };
-const mapDispatchToProps = dispatch => ({
-    sortTweets(order) {
-        dispatch(Actions.changeTweetsOrder(order));
-    },
-});
+const mapDispatchToProps = {
+    sortTweets: TweetActions.sortTweets,
+};
 
 export default connect(
     mapStateToProps,
