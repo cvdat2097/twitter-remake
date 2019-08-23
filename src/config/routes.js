@@ -15,6 +15,7 @@ import { ReactComponent as ActiveListsSVG } from '../assets/svg/lists-active.svg
 import { ReactComponent as MoreSVG } from '../assets/svg/more.svg';
 
 import HomePage from '../pages/Home';
+import ExplorePage from '../pages/Explore';
 import NotFound from '../pages/NotFound';
 
 const navLinkClassName = 'd-none d-lg-block mx-3 font-weight-bold';
@@ -48,7 +49,7 @@ const ROUTE_CONFIG = [
         title: <span className={navLinkClassName}>Explore</span>,
         icon: ExploreSVG,
         activeIcon: ActiveExploreSVG,
-        component: () => <div>Explore Page</div>,
+        component: ExplorePage,
     },
     {
         name: 'NOTIFICATION',

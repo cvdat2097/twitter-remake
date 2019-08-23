@@ -6,7 +6,7 @@ import TweetActions from '../../core/tweets/action';
 
 import { Divider } from '../../components/utils/Divider';
 import HomeHeader from './HomeHeader';
-import HomeFooter from './HomeFooter';
+import AppFooter from '../AppFooter';
 import SearchBar from '../../components/SearchBar';
 import TrendsWidget from '../../components/trends/TrendsWidget';
 import FollowSuggestion from '../../components/FollowSuggestion';
@@ -48,14 +48,14 @@ const Home = () => {
                         <SearchBar />
                     </div>
                     <div className="p-2">
-                        <TrendsWidget trends={TRENDS} />
+                        <TrendsWidget trends={TRENDS} displaySettings />
                     </div>
                     <div className="p-2">
                         <FollowSuggestion />
                     </div>
                 </section>
 
-                <HomeFooter />
+                <AppFooter />
             </div>
         </div>
     );

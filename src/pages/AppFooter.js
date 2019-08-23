@@ -1,12 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react';
 
-import { Popover, PopoverPosition } from '../../components/utils/Popover';
-import { Menu, MenuItem } from '../../components/utils/Menu';
+import { Popover, PopoverPosition } from '../components/utils/Popover';
+import { Menu, MenuItem } from '../components/utils/Menu';
 
-import { ReactComponent as DownSVG } from '../../assets/svg/icons/down.svg';
+import { ReactComponent as DownSVG } from '../assets/svg/icons/down.svg';
 
-const HomeFooter = () => {
+const AppFooter = () => {
     const [menuVisibility, setMenuVisibility] = useState(false);
 
     const handleMenuClick = () => {
@@ -63,4 +63,4 @@ const HomeFooter = () => {
     );
 };
 
-export default HomeFooter;
+export default AppFooter;

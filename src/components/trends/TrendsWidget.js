@@ -21,16 +21,19 @@ const Trend = props => {
 };
 
 const Header = props => {
-    const { showModalSettings } = props;
+    const { showSettingsModal } = props;
 
     return (
         <div className="d-flex align-items-center">
             <span>Trends for you</span>
-            <Button
-                className="ml-auto"
-                icon={<SettingsSVG className="svg-fill-primary" />}
-                onClick={showModalSettings}
-            />
+
+            {showSettingsModal && (
+                <Button
+                    className="ml-auto"
+                    icon={<SettingsSVG className="svg-fill-primary" />}
+                    onClick={showSettingsModal}
+                />
+            )}
         </div>
     );
 };
@@ -53,18 +56,24 @@ const generateTrends = trends => {
 };
 
 const TrendsWidget = props => {
-    const { trends } = props;
+    const { trends, displaySettings } = props;
 
     const [
         settingsVisibility,
         showSettingsModal,
         hideSettingsModal,
-    ] = useVisibility(true);
+    ] = useVisibility(false);
 
     return (
         <>
             <ListGroup
-                header={<Header showModalSettings={showSettingsModal} />}
+                header={
+                    <Header
+                        showSettingsModal={
+                            displaySettings ? showSettingsModal : null
+                        }
+                    />
+                }
                 footer={<Footer />}
             >
                 {generateTrends(trends)}
@@ -86,6 +95,7 @@ TrendsWidget.propTypes = {
             tweets: PropTypes.string,
         })
     ),
+    displaySettings: PropTypes.bool,
 };
 
 export default TrendsWidget;

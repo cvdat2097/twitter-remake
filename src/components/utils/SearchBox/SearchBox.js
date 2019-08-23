@@ -37,12 +37,12 @@ const SearchBox = props => {
                 src={searchSVG}
                 className="search-icon position-absolute "
                 alt=""
-                width="20"
-                height="20"
+                width="18"
+                height="18"
             />
 
             <input
-                className="form-control rounded-pill bg-light px-5"
+                className="form-control rounded-pill bg-light px-5 py-0"
                 type="text"
                 placeholder={placeholder}
                 value={keyword}
@@ -73,6 +73,7 @@ SearchBox.propTypes = {
     onChange: PropTypes.func,
     placeholder: PropTypes.string,
     results: PropTypes.object,
+    // fontSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 export default SearchBox;

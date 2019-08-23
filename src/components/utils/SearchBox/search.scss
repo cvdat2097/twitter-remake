@@ -1,13 +1,13 @@
 .tw-search-input {
     %icon {
         position: absolute;
-        top: 10px;
+        top: 25%;
     }
 
     .search-icon {
         @extend %icon;
 
-        left: 10px;
+        left: 15px;
     }
 
     .clear-icon {
@@ -20,6 +20,10 @@
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+
+    input {
+        font-size: 100%;
     }
 
     input:focus {
