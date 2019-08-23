@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { ListGroup, ListItem } from '../components/utils/ListGroup';
-import { Button } from '../components/utils/Button';
-import { Modal } from '../components/utils/Modal';
-import { useVisibility } from './hooks';
+import { ListGroup, ListItem } from '../utils/ListGroup';
+import { Button } from '../utils/Button';
+import TrendsSettings from './TrendsSettings';
+import { useVisibility } from '../hooks';
 
-import { ReactComponent as SettingsSVG } from '../assets/svg/icons/settings.svg';
+import { ReactComponent as SettingsSVG } from '../../assets/svg/icons/settings.svg';
 
 const Trend = props => {
     const { location, topic, tweets } = props;
@@ -20,7 +20,7 @@ const Trend = props => {
     );
 };
 
-const TrendHeader = props => {
+const Header = props => {
     const { showModalSettings } = props;
 
     return (
@@ -35,7 +35,7 @@ const TrendHeader = props => {
     );
 };
 
-const TrendFooter = () => {
+const Footer = () => {
     return <div className="text-primary clickable small">Show more</div>;
 };
 
@@ -52,30 +52,33 @@ const generateTrends = trends => {
     }
 };
 
-const TrendsList = props => {
+const TrendsWidget = props => {
     const { trends } = props;
 
     const [
-        modalVisibility,
-        showModalSettings,
-        hideModalSettings,
-    ] = useVisibility(false);
+        settingsVisibility,
+        showSettingsModal,
+        hideSettingsModal,
+    ] = useVisibility(true);
 
     return (
         <>
             <ListGroup
-                header={<TrendHeader showModalSettings={showModalSettings} />}
-                footer={<TrendFooter />}
+                header={<Header showModalSettings={showSettingsModal} />}
+                footer={<Footer />}
             >
                 {generateTrends(trends)}
             </ListGroup>
 
-            <Modal visible={modalVisibility} onClose={hideModalSettings} />
+            <TrendsSettings
+                visible={settingsVisibility}
+                onClose={hideSettingsModal}
+            />
         </>
     );
 };
 
-TrendsList.propTypes = {
+TrendsWidget.propTypes = {
     trends: PropTypes.arrayOf(
         PropTypes.shape({
             location: PropTypes.string,
@@ -85,4 +88,4 @@ TrendsList.propTypes = {
     ),
 };
 
-export default TrendsList;
+export default TrendsWidget;

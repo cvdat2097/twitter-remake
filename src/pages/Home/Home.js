@@ -4,10 +4,11 @@ import { withRouter } from 'react-router-dom';
 
 import TweetActions from '../../core/tweets/action';
 
+import { Divider } from '../../components/utils/Divider';
 import HomeHeader from './HomeHeader';
 import HomeFooter from './HomeFooter';
 import SearchBar from '../../components/SearchBar';
-import TrendsList from '../../components/TrendsList';
+import TrendsWidget from '../../components/trends/TrendsWidget';
 import FollowSuggestion from '../../components/FollowSuggestion';
 import TweetComposer from '../../components/tweet/TweetComposer';
 import Tweet from '../../components/tweet/Tweet';
@@ -30,12 +31,7 @@ const Home = () => {
                         <div className="d-none d-md-block">
                             <TweetComposer />
 
-                            <div
-                                className="bg-light d-inline-block w-100"
-                                style={{
-                                    height: 10,
-                                }}
-                            />
+                            <Divider />
                         </div>
 
                         <div>
@@ -52,7 +48,7 @@ const Home = () => {
                         <SearchBar />
                     </div>
                     <div className="p-2">
-                        <TrendsList trends={TRENDS} />
+                        <TrendsWidget trends={TRENDS} />
                     </div>
                     <div className="p-2">
                         <FollowSuggestion />
