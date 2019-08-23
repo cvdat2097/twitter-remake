@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Widget } from '../../components/utils/Widget';
+import { Tabs } from '../../components/utils/Tabs';
 import TrendsList from '../../components/trends/TrendsList';
 import SearchBar from '../../components/SearchBar';
 import AppFooter from '../AppFooter';
@@ -25,7 +26,10 @@ const Notification = () => {
                         />
                     </div>
 
-                    <div className="d-flex flex-column">d</div>
+                    <div className="d-flex flex-column">
+                        {/* CONTENT */}
+                        <Tabs />
+                    </div>
                 </section>
             </div>
 

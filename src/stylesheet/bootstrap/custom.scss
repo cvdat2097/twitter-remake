@@ -105,3 +105,28 @@ $border-radius-xl: 0.7rem !default;
         }
     }
 }
+
+@each $color, $value in $theme-colors {
+    .hoverable-#{$color} {
+        box-shadow: none !important;
+        border: none;
+
+        &:not(.disabled):hover {
+            color: $value !important;
+            background: get-hover-color($value);
+
+            svg path {
+                fill: $value !important;
+            }
+        }
+
+        &:not(.disabled):active {
+            background: get-active-color($value) !important;
+        }
+
+        &.active {
+            color: $value;
+            border-bottom: 2px solid $value;
+        }
+    }
+}
