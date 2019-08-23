@@ -10,10 +10,10 @@ import addSVG from '../../assets/svg/icons/add.svg';
 import './tweetcomposer.scss';
 
 const TweetComposer = () => {
-    const [post, setPost] = useState('');
+    const [postContent, setPostContent] = useState('');
 
     const handleInputChange = event => {
-        setPost(event.target.value);
+        setPostContent(event.target.value);
     };
 
     return (
@@ -31,7 +31,7 @@ const TweetComposer = () => {
                     <textarea
                         className="form-control shadow-none big"
                         placeholder="What's happening?"
-                        value={post}
+                        value={postContent}
                         onChange={handleInputChange}
                         rows="1"
                     />
@@ -56,12 +56,12 @@ const TweetComposer = () => {
                             className="mr-2 small"
                             icon={addSVG}
                             outlined
-                            disabled={post ? false : true}
+                            disabled={postContent ? false : true}
                         />
                         <button
                             className={
                                 'btn btn-primary rounded-pill ' +
-                                (post ? '' : 'disabled')
+                                (postContent ? '' : 'disabled')
                             }
                         >
                             Tweet

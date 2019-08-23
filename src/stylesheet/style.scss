@@ -33,3 +33,9 @@
 ::placeholder {
     color: map-get($tw-colors, 'tw-secondary') !important;
 }
+
+body {
+    &.modal-openning {
+        overflow: hidden;
+    }
+}

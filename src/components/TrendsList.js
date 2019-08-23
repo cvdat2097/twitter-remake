@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import { ListGroup, ListItem } from '../components/utils/ListGroup';
 import { Button } from '../components/utils/Button';
+import { Modal } from '../components/utils/Modal';
+import { useVisibility } from './hooks';
 
 import { ReactComponent as SettingsSVG } from '../assets/svg/icons/settings.svg';
 
@@ -18,13 +20,16 @@ const Trend = props => {
     );
 };
 
-const TrendHeader = () => {
+const TrendHeader = props => {
+    const { showModalSettings } = props;
+
     return (
         <div className="d-flex align-items-center">
             <span>Trends for you</span>
             <Button
                 className="ml-auto"
                 icon={<SettingsSVG className="svg-fill-primary" />}
+                onClick={showModalSettings}
             />
         </div>
     );
@@ -49,10 +54,24 @@ const generateTrends = trends => {
 
 const TrendsList = props => {
     const { trends } = props;
+
+    const [
+        modalVisibility,
+        showModalSettings,
+        hideModalSettings,
+    ] = useVisibility(false);
+
     return (
-        <ListGroup header={<TrendHeader />} footer={<TrendFooter />}>
-            {generateTrends(trends)}
-        </ListGroup>
+        <>
+            <ListGroup
+                header={<TrendHeader showModalSettings={showModalSettings} />}
+                footer={<TrendFooter />}
+            >
+                {generateTrends(trends)}
+            </ListGroup>
+
+            <Modal visible={modalVisibility} onClose={hideModalSettings} />
+        </>
     );
 };
 
