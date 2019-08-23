@@ -31,8 +31,8 @@ SearchBar.propTypes = {
     gotSearchResults: PropTypes.func,
 };
 
-const mapStateToProps = ({ search }) => ({
-    results: search.results,
+const mapStateToProps = ({ search: { results } }) => ({
+    results,
 });
 const mapDispatchToProps = {
     gotSearchResults: SearchActions.gotSearchResults,

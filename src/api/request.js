@@ -3,11 +3,11 @@ import { SEARCH_RESULTS } from '../mock/search';
 
 const mockRequest = (_method, url, payload) => {
     let response = null;
+    const keyword = payload;
+    const requestDelay = 1000;
 
     switch (url) {
         case ROUTES.SEARCH:
-            const keyword = payload;
-
             if (keyword) {
                 response = SEARCH_RESULTS;
             } else {
@@ -23,7 +23,7 @@ const mockRequest = (_method, url, payload) => {
     return new Promise(resolve => {
         setTimeout(() => {
             resolve(response);
-        }, 1000);
+        }, requestDelay);
     });
 };
 

@@ -10,31 +10,29 @@ import store from './core/store';
 
 window.store = store;
 
-class App extends React.Component {
-    render() {
-        return (
-            <React.StrictMode>
-                <Provider store={store}>
-                    <BrowserRouter>
-                        <div className="fluid-container">
-                            <div
-                                id="home-page-container"
-                                className="row no-gutters"
-                            >
-                                <div className="col-auto col-xl-3">
-                                    <NavBar />
-                                </div>
+const App = () => {
+    return (
+        <React.StrictMode>
+            <Provider store={store}>
+                <BrowserRouter>
+                    <div className="fluid-container">
+                        <div
+                            id="home-page-container"
+                            className="row no-gutters"
+                        >
+                            <div className="col-auto col-xl-3">
+                                <NavBar />
+                            </div>
 
-                                <div className="col col-xl-11">
-                                    <AppRouter routes={routes} />
-                                </div>
+                            <div className="col col-xl-11">
+                                <AppRouter routes={routes} />
                             </div>
                         </div>
-                    </BrowserRouter>
-                </Provider>
-            </React.StrictMode>
-        );
-    }
-}
+                    </div>
+                </BrowserRouter>
+            </Provider>
+        </React.StrictMode>
+    );
+};
 
 export default App;

@@ -29,6 +29,8 @@ const generatePeople = people => {
             </ListItem>
         ));
     }
+
+    return null;
 };
 
 const FollowSuggestion = () => {
