@@ -33,9 +33,11 @@ const generatePeople = people => {
     return null;
 };
 
-const FollowSuggestion = () => {
+const FollowSuggestion = props => {
+    const { title } = props;
+
     return (
-        <ListGroup header="Who to follow" footer={<Footer />}>
+        <ListGroup header={title} footer={<Footer />}>
             {generatePeople(PEOPLE_TO_FOLLOW)}
         </ListGroup>
     );

@@ -19,6 +19,7 @@ import ExplorePage from '../pages/Explore';
 import NotificationPage from '../pages/Notification';
 import ListsPage from '../pages/Lists';
 import BookmarksPage from '../pages/Bookmarks';
+import ProfilePage from '../pages/Profile';
 import NotFound from '../pages/NotFound';
 
 const navLinkClassName = 'd-none d-lg-block mx-3 font-weight-bold';
@@ -91,7 +92,7 @@ const ROUTE_CONFIG = [
         path: '/profile',
         title: <span className={navLinkClassName}>Profile</span>,
         icon: MoreSVG,
-        component: () => <div>Profile Page</div>,
+        component: ProfilePage,
     },
     {
         name: 'NOT_FOUND',

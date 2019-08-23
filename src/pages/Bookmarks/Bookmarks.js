@@ -46,7 +46,7 @@ const Bookmarks = props => {
                 </div>
                 <div className="p-2">
                     <Widget>
-                        <FollowSuggestion />
+                        <FollowSuggestion title="Who to follow" />
                     </Widget>
                 </div>
 

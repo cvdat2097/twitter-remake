@@ -10,48 +10,53 @@ import AppFooter from '../AppFooter';
 import PageHeader from '../PageHeader';
 import FollowSuggestion from '../../components/FollowSuggestion';
 
-import listAddSVG from '../../assets/svg/icons/list-add.svg';
+import { ReactComponent as SettingsSVG } from '../../assets/svg/icons/settings.svg';
 
 import { TRENDS } from '../../mock/trends';
 
-const Lists = props => {
+const Profile = props => {
     const {
-        currentAccount: { username },
+        currentAccount: { name, nTweets },
     } = props;
+
     return (
         <div className="row no-gutters">
             <div className="col col-sm border-left border-right">
                 <section id="main">
                     <div className="tw-header bg-white border-bottom position-sticky fixed-top p-2">
                         <PageHeader
-                            title="Lists"
-                            description={`@${username}`}
-                            btnIcon={listAddSVG}
+                            title={name}
+                            description={`${nTweets} Tweets`}
+                            btnIcon={
+                                <SettingsSVG className="svg-fill-primary" />
+                            }
                         />
                     </div>
 
                     <div className="d-flex flex-column">
                         <Tabs>
-                            <TabBody title="Owned">
+                            <TabBody title="Tweets">
                                 <Empty
-                                    title="You haven’t created any Lists yet."
-                                    description="When you do, they’ll show up here."
-                                    actionTitle="Create a List"
-                                    onAction={() =>
-                                        console.log('Created A List')
-                                    }
+                                    title="Under Construction"
+                                    description="Please comeback later"
                                 />
                             </TabBody>
-                            <TabBody title="Subscribed">
+                            <TabBody title="Tweets &amp; Replies">
                                 <Empty
-                                    title="You haven’t subscribed to any Lists yet."
-                                    description="When you do, they’ll show up here."
+                                    title="Under Construction"
+                                    description="Please comeback later"
                                 />
                             </TabBody>
-                            <TabBody title="Member">
+                            <TabBody title="Meida">
                                 <Empty
-                                    title="You haven’t been added to any Lists yet."
-                                    description="When someone adds you to a List, it’ll show up here."
+                                    title="Under Construction"
+                                    description="Please comeback later"
+                                />
+                            </TabBody>
+                            <TabBody title="Likes">
+                                <Empty
+                                    title="Under Construction"
+                                    description="Please comeback later"
                                 />
                             </TabBody>
                         </Tabs>
@@ -65,12 +70,12 @@ const Lists = props => {
                 </div>
                 <div className="p-2">
                     <Widget>
-                        <TrendsList trends={TRENDS} displaySettings />
+                        <FollowSuggestion title="You might like" />
                     </Widget>
                 </div>
                 <div className="p-2">
                     <Widget>
-                        <FollowSuggestion title="Who to follow" />
+                        <TrendsList trends={TRENDS} displaySettings />
                     </Widget>
                 </div>
 
@@ -84,4 +89,4 @@ const mapStateToProps = ({ account: { current } }) => ({
     currentAccount: current,
 });
 
-export default connect(mapStateToProps)(Lists);
+export default connect(mapStateToProps)(Profile);

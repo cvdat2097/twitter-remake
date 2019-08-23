@@ -55,7 +55,7 @@ const Explore = () => {
                 <section id="suggestion">
                     <div className="p-2">
                         <Widget>
-                            <FollowSuggestion />
+                            <FollowSuggestion title="Who to follow" />
                         </Widget>
                     </div>
                 </section>

@@ -4,6 +4,8 @@ const INITIAL_STATE = {
     current: {
         name: 'Admin',
         username: 'admin1564',
+        avatar: '/img/account-0.jpg',
+        nTweets: 35,
     },
 };
 

@@ -91,7 +91,14 @@ const MoreMenu = ({ visible, onClose, currentAccount }) => {
     );
 };
 
-const generateButtons = (buttons, activePath) => {
+// TODO: Custom Avatar somewhere else
+const generateNavButtons = (
+    buttons,
+    activePath,
+    custom = { pathToCustomize: null }
+) => {
+    const { pathToCustomize, customIcon, customActiveIcon } = custom;
+
     return buttons.map(
         ({ icon, activeIcon, activeColor, title, path, redirect }, index) => {
             const Icon = icon;
@@ -102,8 +109,16 @@ const generateButtons = (buttons, activePath) => {
                     <div key={index} className="mb-2 nav-item">
                         <Button
                             className="large position-relative"
-                            icon={Icon && <Icon />}
-                            activeIcon={ActiveIcon && <ActiveIcon />}
+                            icon={
+                                pathToCustomize === path
+                                    ? customIcon
+                                    : Icon && <Icon />
+                            }
+                            activeIcon={
+                                pathToCustomize === path
+                                    ? customActiveIcon
+                                    : ActiveIcon && <ActiveIcon />
+                            }
                             activeColor={activeColor}
                             title={title}
                             active={activePath === path}
@@ -126,6 +141,7 @@ const NavBar = props => {
         location: { pathname },
         currentAccount,
     } = props;
+    const { avatar } = currentAccount;
     const [moreMenuVisibility, setMoreMenuVisibility] = useState(false);
     const currentRootPath = URLHelper.getRootPath(pathname);
 
@@ -144,7 +160,23 @@ const NavBar = props => {
             </div>
 
             <div className="d-lg-block d-flex flex-column align-items-center nav">
-                {generateButtons(Routes, currentRootPath)}
+                {generateNavButtons(Routes, currentRootPath, {
+                    pathToCustomize: '/profile',
+                    customIcon: (
+                        <img
+                            className="rounded-circle border-2 border-transparent"
+                            src={avatar}
+                            alt=""
+                        />
+                    ),
+                    customActiveIcon: (
+                        <img
+                            className="rounded-circle border-2 border-primary"
+                            src={avatar}
+                            alt=""
+                        />
+                    ),
+                })}
 
                 <div className="mb-2 nav-item position-relative">
                     <Button
