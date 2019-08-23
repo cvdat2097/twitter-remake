@@ -44,21 +44,19 @@ const Home = () => {
                 </section>
             </div>
             <div className="col-md-4 d-none d-md-block">
-                <section id="suggestion">
-                    <div className="tw-header p-2 bg-white position-sticky fixed-top">
-                        <SearchBar />
-                    </div>
-                    <div className="p-2">
-                        <Widget>
-                            <TrendsList trends={TRENDS} displaySettings />
-                        </Widget>
-                    </div>
-                    <div className="p-2">
-                        <Widget>
-                            <FollowSuggestion />
-                        </Widget>
-                    </div>
-                </section>
+                <div className="tw-header p-2 bg-white position-sticky fixed-top">
+                    <SearchBar />
+                </div>
+                <div className="p-2">
+                    <Widget>
+                        <TrendsList trends={TRENDS} displaySettings />
+                    </Widget>
+                </div>
+                <div className="p-2">
+                    <Widget>
+                        <FollowSuggestion />
+                    </Widget>
+                </div>
 
                 <AppFooter />
             </div>
