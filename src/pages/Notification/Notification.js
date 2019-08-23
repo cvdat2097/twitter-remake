@@ -1,7 +1,8 @@
 import React from 'react';
 
 import { Widget } from '../../components/utils/Widget';
-import { Tabs } from '../../components/utils/Tabs';
+import { Empty } from '../../components/utils/Empty';
+import { Tabs, TabBody } from '../../components/utils/Tabs';
 import TrendsList from '../../components/trends/TrendsList';
 import SearchBar from '../../components/SearchBar';
 import AppFooter from '../AppFooter';
@@ -27,8 +28,22 @@ const Notification = () => {
                     </div>
 
                     <div className="d-flex flex-column">
-                        {/* CONTENT */}
-                        <Tabs />
+                        <Tabs>
+                            <TabBody title="All">
+                                <Empty
+                                    title=" Nothing to see here... yet"
+                                    description="From likes to Retweets and a whole lot more,
+                                this is where all the action happens."
+                                />
+                            </TabBody>
+                            <TabBody title="Memos">
+                                <Empty
+                                    title=" Nothing to see here... yet"
+                                    description=" When someone mentions you, you’ll find it
+                                    here."
+                                />
+                            </TabBody>
+                        </Tabs>
                     </div>
                 </section>
             </div>
