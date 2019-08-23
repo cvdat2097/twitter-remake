@@ -18,9 +18,11 @@ const PageHeader = props => {
                 <div className="flex-grow-1">{title}</div>
             )}
 
-            <div className="ml-auto pl-2">
-                <Button onClick={btnOnClick} icon={btnIcon} />
-            </div>
+            {btnOnClick || btnIcon ? (
+                <div className="ml-auto pl-2">
+                    <Button onClick={btnOnClick} icon={btnIcon} />
+                </div>
+            ) : null}
 
             {children}
         </div>
