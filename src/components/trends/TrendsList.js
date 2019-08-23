@@ -55,7 +55,7 @@ const generateTrends = trends => {
     }
 };
 
-const TrendsWidget = props => {
+const TrendsList = props => {
     const { trends, displaySettings } = props;
 
     const [
@@ -87,7 +87,7 @@ const TrendsWidget = props => {
     );
 };
 
-TrendsWidget.propTypes = {
+TrendsList.propTypes = {
     trends: PropTypes.arrayOf(
         PropTypes.shape({
             location: PropTypes.string,
@@ -98,4 +98,4 @@ TrendsWidget.propTypes = {
     displaySettings: PropTypes.bool,
 };
 
-export default TrendsWidget;
+export default TrendsList;

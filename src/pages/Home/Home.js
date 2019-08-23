@@ -5,10 +5,11 @@ import { withRouter } from 'react-router-dom';
 import TweetActions from '../../core/tweets/action';
 
 import { Divider } from '../../components/utils/Divider';
+import { Widget } from '../../components/utils/Widget';
 import HomeHeader from './HomeHeader';
 import AppFooter from '../AppFooter';
 import SearchBar from '../../components/SearchBar';
-import TrendsWidget from '../../components/trends/TrendsWidget';
+import TrendsList from '../../components/trends/TrendsList';
 import FollowSuggestion from '../../components/FollowSuggestion';
 import TweetComposer from '../../components/tweet/TweetComposer';
 import Tweet from '../../components/tweet/Tweet';
@@ -48,10 +49,14 @@ const Home = () => {
                         <SearchBar />
                     </div>
                     <div className="p-2">
-                        <TrendsWidget trends={TRENDS} displaySettings />
+                        <Widget>
+                            <TrendsList trends={TRENDS} displaySettings />
+                        </Widget>
                     </div>
                     <div className="p-2">
-                        <FollowSuggestion />
+                        <Widget>
+                            <FollowSuggestion />
+                        </Widget>
                     </div>
                 </section>
 
