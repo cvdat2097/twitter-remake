@@ -7,7 +7,7 @@ const NotFound = () => (
     <div className="row">
         <div className="col">
             <h4 className="text-center font-weight-bold m-5">
-                Sorry, that page doesn't exist!
+                Sorry, that page doesn&apos;t exist!
             </h4>
             <p className="text-center">
                 Why not try a <Link to={PATHNAME.SEARCH}>search</Link> to find

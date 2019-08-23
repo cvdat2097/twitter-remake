@@ -8,7 +8,7 @@ import TrendsSettings from '../../components/trends/TrendsSettings';
 
 import { ReactComponent as SettingsSVG } from '../../assets/svg/icons/settings.svg';
 
-const ExploreHeader = props => {
+const ExploreHeader = () => {
     const [
         settingsVisibility,
         showSettingsModal,
