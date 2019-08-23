@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import { Widget } from '../../components/utils/Widget';
 import { Empty } from '../../components/utils/Empty';
@@ -9,38 +10,48 @@ import AppFooter from '../AppFooter';
 import PageHeader from '../PageHeader';
 import FollowSuggestion from '../../components/FollowSuggestion';
 
-import { ReactComponent as SettingsSVG } from '../../assets/svg/icons/settings.svg';
+import listAddSVG from '../../assets/svg/icons/list-add.svg';
 
 import { TRENDS } from '../../mock/trends';
 
-const Notification = () => {
+const Lists = props => {
+    const {
+        currentAccount: { username },
+    } = props;
     return (
         <div className="row no-gutters">
             <div className="col col-sm border-left border-right">
                 <section id="main">
                     <div className="tw-header bg-white border-bottom position-sticky fixed-top p-2">
                         <PageHeader
-                            title="Notifications"
-                            btnIcon={
-                                <SettingsSVG className="svg-fill-primary" />
-                            }
+                            title="Lists"
+                            description={`@${username}`}
+                            btnIcon={listAddSVG}
                         />
                     </div>
 
                     <div className="d-flex flex-column">
                         <Tabs>
-                            <TabBody title="All">
+                            <TabBody title="Owned">
                                 <Empty
-                                    title="Nothing to see here... yet"
-                                    description="From likes to Retweets and a whole lot more,
-                                this is where all the action happens."
+                                    title="You haven’t created any Lists yet."
+                                    description="When you do, they’ll show up here."
+                                    actionTitle="Create a List"
+                                    onAction={() =>
+                                        console.log('Created A List')
+                                    }
                                 />
                             </TabBody>
-                            <TabBody title="Memos">
+                            <TabBody title="Subscribed">
                                 <Empty
-                                    title="Nothing to see here... yet"
-                                    description=" When someone mentions you, you’ll find it
-                                    here."
+                                    title="You haven’t subscribed to any Lists yet."
+                                    description="When you do, they’ll show up here."
+                                />
+                            </TabBody>
+                            <TabBody title="Member">
+                                <Empty
+                                    title="You haven’t been added to any Lists yet."
+                                    description="When someone adds you to a List, it’ll show up here."
                                 />
                             </TabBody>
                         </Tabs>
@@ -69,4 +80,8 @@ const Notification = () => {
     );
 };
 
-export default Notification;
+const mapStateToProps = ({ account: { current } }) => ({
+    currentAccount: current,
+});
+
+export default connect(mapStateToProps)(Lists);
