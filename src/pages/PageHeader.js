@@ -3,15 +3,21 @@ import React from 'react';
 import { Button } from '../components/utils/Button';
 
 const PageHeader = props => {
-    const { title, btnOnClick, btnIcon } = props;
+    const { title, btnOnClick, btnIcon, children } = props;
 
     return (
-        <div className="h-100 d-flex align-items-center py-3 px-2">
-            <h1 className="h5 m-0 font-weight-bold">{title}</h1>
+        <div className="h-100 d-flex align-items-center position-relative py-3 px-2">
+            {typeof title === 'string' ? (
+                <h1 className="h5 m-0 font-weight-bold flex-grow-1">{title}</h1>
+            ) : (
+                <div className="flex-grow-1">{title}</div>
+            )}
 
-            <div className="position-relative ml-auto">
+            <div className="ml-auto pl-2">
                 <Button onClick={btnOnClick} icon={btnIcon} />
             </div>
+
+            {children}
         </div>
     );
 };
