@@ -16,7 +16,7 @@ const PageHeader = props => {
     return (
         <div className="h-100 d-flex align-items-center position-relative py-3 px-2">
             {leftOnClick || leftIcon ? (
-                <div className="mr-auto pr-2">
+                <div className="pr-2">
                     <Button onClick={leftOnClick} icon={leftIcon} />
                 </div>
             ) : null}
