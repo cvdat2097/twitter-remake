@@ -25,17 +25,16 @@ const Explore = () => {
             <div className="col col-sm border-left border-right">
                 <section id="main">
                     <div className="tw-header bg-white border-bottom position-sticky fixed-top p-2">
-                        {/* <ExploreHeader /> */}
                         <PageHeader
                             title={
                                 <div style={{ fontSize: '0.9rem' }}>
                                     <SearchBar />{' '}
                                 </div>
                             }
-                            btnIcon={
+                            rightIcon={
                                 <SettingsSVG className="svg-fill-primary" />
                             }
-                            btnOnClick={showSettingsModal}
+                            rightOnClick={showSettingsModal}
                         >
                             <TrendsSettings
                                 visible={settingsVisibility}

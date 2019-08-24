@@ -37,10 +37,10 @@ const Home = props => {
                     <div className="tw-header bg-white border-bottom position-sticky fixed-top p-2">
                         <PageHeader
                             title={title}
-                            btnIcon={
+                            rightIcon={
                                 <SettingsSVG className="svg-fill-primary" />
                             }
-                            btnOnClick={showOrderPopover}
+                            rightOnClick={showOrderPopover}
                         >
                             <Popover
                                 visible={orderVisibility}

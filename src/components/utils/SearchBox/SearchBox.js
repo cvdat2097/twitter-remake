@@ -28,7 +28,7 @@ const SearchBox = props => {
     };
 
     const handleInputBlur = () => {
-        setResultVisibility(false);
+        // setResultVisibility(false);
     };
 
     return (
@@ -60,6 +60,7 @@ const SearchBox = props => {
                 <img src={closeSVG} alt="" width="10" height="10" />
             </button>
 
+            {/* TODO: use Popover */}
             <SearchResult
                 keyword={keyword}
                 className={resultVisibility ? '' : 'd-none'}

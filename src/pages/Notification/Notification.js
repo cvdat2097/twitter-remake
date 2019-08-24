@@ -21,7 +21,7 @@ const Notification = () => {
                     <div className="tw-header bg-white border-bottom position-sticky fixed-top p-2">
                         <PageHeader
                             title="Notifications"
-                            btnIcon={
+                            rightIcon={
                                 <SettingsSVG className="svg-fill-primary" />
                             }
                         />

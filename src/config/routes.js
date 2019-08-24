@@ -16,6 +16,7 @@ import { ReactComponent as MoreSVG } from '../assets/svg/more.svg';
 
 import HomePage from '../pages/Home';
 import ExplorePage from '../pages/Explore';
+import SearchPage from '../pages/Search';
 import NotificationPage from '../pages/Notification';
 import ListsPage from '../pages/Lists';
 import BookmarksPage from '../pages/Bookmarks';
@@ -54,6 +55,12 @@ const ROUTE_CONFIG = [
         icon: ExploreSVG,
         activeIcon: ActiveExploreSVG,
         component: ExplorePage,
+    },
+    {
+        name: 'SEARCH',
+        path: '/search',
+        component: SearchPage,
+        hideInNav: true,
     },
     {
         name: 'NOTIFICATION',

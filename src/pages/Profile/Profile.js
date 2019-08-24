@@ -27,7 +27,7 @@ const Profile = props => {
                         <PageHeader
                             title={name}
                             description={`${nTweets} Tweets`}
-                            btnIcon={
+                            rightIcon={
                                 <SettingsSVG className="svg-fill-primary" />
                             }
                         />

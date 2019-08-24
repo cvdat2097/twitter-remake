@@ -100,11 +100,14 @@ const generateNavButtons = (
     const { pathToCustomize, customIcon, customActiveIcon } = custom;
 
     return buttons.map(
-        ({ icon, activeIcon, activeColor, title, path, redirect }, index) => {
+        (
+            { icon, activeIcon, activeColor, title, path, redirect, hideInNav },
+            index
+        ) => {
             const Icon = icon;
             const ActiveIcon = activeIcon;
 
-            if (path && !redirect) {
+            if (path && !redirect && !hideInNav) {
                 return (
                     <div key={index} className="mb-2 nav-item">
                         <Button

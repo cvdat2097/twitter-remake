@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { Link } from 'react-router-dom';
+
 import { AccountSummary } from '../AccountSummary';
 
 import './search.scss';
@@ -9,9 +11,12 @@ const TopicResult = props => {
     const { topic } = props;
 
     return (
-        <div className="search-result p-2 font-weight-bold border-bottom clickable">
+        <Link
+            to={`/search?p=${topic}`}
+            className="search-result p-2 font-weight-bold border-bottom clickable text-dark d-block"
+        >
             {topic}
-        </div>
+        </Link>
     );
 };
 

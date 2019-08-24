@@ -12,7 +12,7 @@ const ListGroup = props => {
                 {header}
             </div>
             {children}
-            <div className="list-footer list-group-item tw-list-group-item py-2">
+            <div className="list-footer border-top list-group-item tw-list-group-item py-2">
                 {footer}
             </div>
         </div>

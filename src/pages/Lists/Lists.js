@@ -26,7 +26,7 @@ const Lists = props => {
                         <PageHeader
                             title="Lists"
                             description={`@${username}`}
-                            btnIcon={listAddSVG}
+                            rightIcon={listAddSVG}
                         />
                     </div>
 
