@@ -144,6 +144,7 @@ const NavBar = props => {
     const {
         location: { pathname },
         currentAccount,
+        onChangeLanguage,
     } = props;
     const { avatar } = currentAccount;
     const [moreMenuVisibility, setMoreMenuVisibility] = useState(false);
@@ -215,6 +216,22 @@ const NavBar = props => {
                         height="24"
                     />
                 </button>
+            </div>
+
+            <div
+                className="position-fixed"
+                style={{
+                    bottom: 50,
+                    left: 50,
+                }}
+            >
+                <select
+                    className="form-control border border-primary"
+                    onChange={e => onChangeLanguage(e.target.value)}
+                >
+                    <option value="en">English</option>
+                    <option value="vi">Tiếng Việt</option>
+                </select>
             </div>
         </section>
     );

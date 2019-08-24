@@ -24,20 +24,27 @@ const translate = (language, dictionary, textId, args) => {
 };
 
 export const trans = (textId, ...args) => {
-    return (
+    let translatedText = '';
+
+    // TODO: return STRING, not React Element
+    const x = (
         <TransContext.Consumer>
             {contextValue => {
                 if (typeof textId === 'string') {
-                    return translate(
+                    translatedText = translate(
                         contextValue.language,
                         contextValue.dictionary,
                         textId,
                         args
                     );
+
+                    return translatedText;
                 }
 
                 return textId;
             }}
         </TransContext.Consumer>
     );
+
+    return x;
 };

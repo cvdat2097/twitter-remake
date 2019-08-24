@@ -16,6 +16,7 @@ import TweetComposer from '../../components/tweet/TweetComposer';
 import TweetsOrderSelector from '../../components/tweet/TweetsOrderSelector';
 import Tweet from '../../components/tweet/Tweet';
 import { TWEETS_ORDER } from '../../constants/tweet';
+import { trans } from '../../lib/transtor';
 
 import { TWEETS } from '../../mock/tweet';
 import { TRENDS } from '../../mock/trends';
@@ -94,11 +95,11 @@ const Home = props => {
 const getTitleFromTweetsOrder = tweetsOrder => {
     switch (tweetsOrder) {
         case TWEETS_ORDER.LASTEST:
-            return 'Lastest Tweets';
+            return trans('home.header.lastest');
 
         case TWEETS_ORDER.DEFAULT:
         default:
-            return 'Home';
+            return trans('home.header.default');
     }
 };
 

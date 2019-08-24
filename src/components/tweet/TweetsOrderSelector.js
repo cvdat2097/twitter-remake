@@ -10,29 +10,35 @@ import lastestSVG from '../../assets/svg/tweetsOrder/tweetsOrder-lastest.svg';
 import exportSVG from '../../assets/svg/icons/export.svg';
 import settingsSVG from '../../assets/svg/icons/settings.svg';
 
+import { trans } from '../../lib/transtor';
+
 const getDisplayData = (tweetsOrder, sortTweets) => {
     switch (tweetsOrder) {
         case TWEETS_ORDER.LASTEST:
             return {
-                caption: 'Latest Tweets show up as they happen',
+                caption: trans('home.header.caption.lastest'),
                 icon: lastestSVG,
                 handleTweetOrderChange: () => sortTweets(TWEETS_ORDER.DEFAULT),
                 option: {
-                    title: 'Go back to Home',
-                    description: 'You’ll see the top Tweets first.',
+                    title: trans('home.header.switch.caption.default'),
+                    description: trans(
+                        'home.header.switch.description.default'
+                    ),
                 },
             };
 
         default:
         case TWEETS_ORDER.DEFAULT:
             return {
-                caption: 'Home shows you top Tweets first',
+                caption: trans('home.header.caption.default'),
+
                 icon: defaultSVG,
                 handleTweetOrderChange: () => sortTweets(TWEETS_ORDER.LASTEST),
                 option: {
-                    title: 'See lastest Tweets instead',
-                    description:
-                        'You’ll be switched back Home after you’ve been away for a while.',
+                    title: trans('home.header.switch.caption.lastest'),
+                    description: trans(
+                        'home.header.switch.description.lastest'
+                    ),
                 },
             };
     }
