@@ -7,6 +7,7 @@ import { Button } from '../components/utils/Button';
 import { Menu, MenuItem, MenuDivider } from '../components/utils/Menu';
 import { Popover, PopoverPosition } from '../components/utils/Popover';
 import URLHelper from '../helper/url';
+import { trans } from '../lib/transtor';
 
 import tweetSVG from '../assets/svg/tweet.svg';
 import addSVG from '../assets/svg/icons/add.svg';
@@ -185,7 +186,11 @@ const NavBar = props => {
                     <Button
                         className="large position-relative"
                         icon={<MoreSVG />}
-                        title={<span className={navLinkClassName}>More</span>}
+                        title={
+                            <span className={navLinkClassName}>
+                                {trans('navbar.more')}
+                            </span>
+                        }
                         onClick={handleMoreMenuClick}
                     />
                     <MoreMenu

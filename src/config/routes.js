@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { trans } from '../lib/transtor';
+
 import { ReactComponent as HomeSVG } from '../assets/svg/home.svg';
 import { ReactComponent as ActiveHomeSVG } from '../assets/svg/home-active.svg';
 import { ReactComponent as ExploreSVG } from '../assets/svg/explore.svg';
@@ -33,7 +35,7 @@ const ROUTE_CONFIG = [
     {
         name: 'HOME',
         path: '/home',
-        title: <span className={navLinkClassName}>Home</span>,
+        title: <span className={navLinkClassName}>{trans('navbar.home')}</span>,
         icon: HomeSVG,
         activeIcon: ActiveHomeSVG,
         component: HomePage,
@@ -51,7 +53,9 @@ const ROUTE_CONFIG = [
     {
         name: 'EXPLORE',
         path: '/explore',
-        title: <span className={navLinkClassName}>Explore</span>,
+        title: (
+            <span className={navLinkClassName}>{trans('navbar.explore')}</span>
+        ),
         icon: ExploreSVG,
         activeIcon: ActiveExploreSVG,
         component: ExplorePage,
@@ -65,7 +69,11 @@ const ROUTE_CONFIG = [
     {
         name: 'NOTIFICATION',
         path: '/notification',
-        title: <span className={navLinkClassName}>Notifications</span>,
+        title: (
+            <span className={navLinkClassName}>
+                {trans('navbar.notifications')}
+            </span>
+        ),
         icon: NotificationsSVG,
         activeIcon: ActiveNotificationsSVG,
         component: NotificationPage,
@@ -73,7 +81,9 @@ const ROUTE_CONFIG = [
     {
         name: 'MESSAGES',
         path: '/messages',
-        title: <span className={navLinkClassName}>Messages</span>,
+        title: (
+            <span className={navLinkClassName}>{trans('navbar.messages')}</span>
+        ),
         icon: MessagesSVG,
         activeIcon: ActiveMessagesSVG,
         component: () => <div>Messages Page</div>,
@@ -81,7 +91,11 @@ const ROUTE_CONFIG = [
     {
         name: 'BOOKMARK',
         path: '/bookmark',
-        title: <span className={navLinkClassName}>Bookmarks</span>,
+        title: (
+            <span className={navLinkClassName}>
+                {trans('navbar.bookmarks')}
+            </span>
+        ),
         icon: BookmarksSVG,
         activeIcon: ActiveBookmarksSVG,
         component: BookmarksPage,
@@ -89,7 +103,9 @@ const ROUTE_CONFIG = [
     {
         name: 'LIST',
         icon: ListsSVG,
-        title: <span className={navLinkClassName}>List</span>,
+        title: (
+            <span className={navLinkClassName}>{trans('navbar.lists')}</span>
+        ),
         activeIcon: ActiveListsSVG,
         path: '/list',
         component: ListsPage,
@@ -97,7 +113,9 @@ const ROUTE_CONFIG = [
     {
         name: 'PROFILE',
         path: '/profile',
-        title: <span className={navLinkClassName}>Profile</span>,
+        title: (
+            <span className={navLinkClassName}>{trans('navbar.profile')}</span>
+        ),
         icon: MoreSVG,
         component: ProfilePage,
     },
