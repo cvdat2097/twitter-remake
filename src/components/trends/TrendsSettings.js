@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import { trans } from '../../lib/transtor';
 import { Modal } from '../utils/Modal';
 import { Divider } from '../utils/Divider';
 
@@ -11,10 +12,10 @@ const TrendsSettings = props => {
     const [personalTrends, setPersonalTrends] = useState(false);
 
     return (
-        <Modal visible={visible} title="Trends" onClose={onClose}>
+        <Modal visible={visible} title={trans('trend.settings.title')} onClose={onClose}>
             <SettingSelect
-                caption="Trends for you"
-                description="Personalise trends based on your location and who you follow."
+                caption={trans('trend.settings.forYou')}
+                description={trans('trend.settings.forYou.description')}
                 value={personalTrends}
                 onChange={setPersonalTrends}
             />
@@ -26,7 +27,7 @@ const TrendsSettings = props => {
             >
                 <Divider />
                 <SettingGroup
-                    caption="Change location"
+                    caption={trans('trend.settings.location')}
                     description="Worldwide"
                 />
             </div>

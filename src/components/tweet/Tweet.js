@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+import { trans } from '../../lib/transtor';
 import { Button } from '../utils/Button';
 import { Menu, MenuItem } from '../utils/Menu';
 import { Popover, PopoverPosition } from '../utils/Popover';
@@ -111,33 +112,36 @@ const Tweet = props => {
                             <Menu>
                                 <MenuItem
                                     className="text-nowrap small"
-                                    title="Show less often"
+                                    title={trans('tweet.menu.less')}
                                     icon={sadEmoticonSvg}
                                 />
                                 <MenuItem
                                     className="text-nowrap small"
-                                    title="Embed Tweet"
+                                    title={trans('tweet.menu.embed')}
                                     icon={embedSvg}
                                 />
                                 <MenuItem
                                     className="text-nowrap small"
-                                    title={`Unfollow @${username}`}
+                                    title={trans(
+                                        'tweet.menu.unfollow',
+                                        username
+                                    )}
                                     icon={unfollowSvg}
                                 />
                                 <MenuItem
                                     className="text-nowrap small"
-                                    title={`Mute @${username}`}
+                                    title={trans('tweet.menu.mute', username)}
                                     icon={muteSvg}
                                 />
                                 <MenuItem
                                     className="text-nowrap small"
-                                    title={`Block @${username}`}
+                                    title={trans('tweet.menu.block', username)}
                                     icon={blockSvg}
                                 />
 
                                 <MenuItem
                                     className="text-nowrap small"
-                                    title="Report Tweet"
+                                    title={trans('tweet.menu.report')}
                                     icon={reportSvg}
                                 />
                             </Menu>

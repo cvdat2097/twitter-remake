@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { trans } from '../../lib/transtor';
 import { Widget } from '../../components/utils/Widget';
 import { Empty } from '../../components/utils/Empty';
 import TrendsList from '../../components/trends/TrendsList';
@@ -46,7 +47,9 @@ const Bookmarks = props => {
                 </div>
                 <div className="p-2">
                     <Widget>
-                        <FollowSuggestion title="Who to follow" />
+                        <FollowSuggestion
+                            title={trans('follow.widget.title')}
+                        />
                     </Widget>
                 </div>
 

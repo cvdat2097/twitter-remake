@@ -16,7 +16,10 @@ const translate = (language, dictionary, textId, args) => {
         for (let i = 0; i < args.length; i++) {
             const arg = args[i];
 
-            text = text.replace(/[^\\]%/, sub => `${sub.charAt(0)}${arg}`);
+            text = text.replace(
+                /([^\\]%)|(^%)/,
+                sub => `${sub.charAt(sub.length - 2)}${arg}`
+            );
         }
     }
 

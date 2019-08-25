@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import { trans } from '../../lib/transtor';
 import { Widget } from '../../components/utils/Widget';
 import { Empty } from '../../components/utils/Empty';
 import { Tabs, TabBody } from '../../components/utils/Tabs';
@@ -137,7 +138,9 @@ const Profile = props => {
                 </div>
                 <div className="p-2">
                     <Widget>
-                        <FollowSuggestion title="You might like" />
+                        <FollowSuggestion
+                            title={trans('follow.widget.titleLike')}
+                        />
                     </Widget>
                 </div>
                 <div className="p-2">

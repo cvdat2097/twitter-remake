@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { useVisibility } from '../../components/hooks';
 import TweetActions from '../../core/tweets/action';
 
+import { trans } from '../../lib/transtor';
 import { Divider } from '../../components/utils/Divider';
 import { Widget } from '../../components/utils/Widget';
 import { Popover, PopoverPosition } from '../../components/utils/Popover';
@@ -16,7 +17,6 @@ import TweetComposer from '../../components/tweet/TweetComposer';
 import TweetsOrderSelector from '../../components/tweet/TweetsOrderSelector';
 import Tweet from '../../components/tweet/Tweet';
 import { TWEETS_ORDER } from '../../constants/tweet';
-import { trans } from '../../lib/transtor';
 
 import { TWEETS } from '../../mock/tweet';
 import { TRENDS } from '../../mock/trends';
@@ -82,7 +82,9 @@ const Home = props => {
                 </div>
                 <div className="p-2">
                     <Widget>
-                        <FollowSuggestion title="Who to follow" />
+                        <FollowSuggestion
+                            title={trans('follow.widget.title')}
+                        />
                     </Widget>
                 </div>
 

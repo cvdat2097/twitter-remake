@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { trans } from '../../lib/transtor';
 import { ListGroup, ListItem } from '../utils/ListGroup';
 import { Button } from '../utils/Button';
 import TrendsSettings from './TrendsSettings';
@@ -13,9 +14,13 @@ const Trend = props => {
 
     return (
         <ListItem>
-            <div className="xsmall text-muted">Trending in {location}</div>
+            <div className="xsmall text-muted">
+                {trans('trend.widget.trending', location)}
+            </div>
             <div className="h6 font-weight-bold mb-1">{topic}</div>
-            <div className="small text-muted">{tweets} Tweets</div>
+            <div className="small text-muted">
+                {trans('trend.widget.tweetUnit', tweets)}
+            </div>
         </ListItem>
     );
 };
@@ -25,7 +30,7 @@ const Header = props => {
 
     return (
         <div className="d-flex align-items-center">
-            <span>Trends for you</span>
+            <span>{trans('trend.widget.title')}</span>
 
             {showSettingsModal && (
                 <Button
@@ -39,7 +44,12 @@ const Header = props => {
 };
 
 const Footer = () => {
-    return <div className="text-primary clickable small">Show more</div>;
+    return (
+        <div className="text-primary clickable small">
+            {' '}
+            {trans('trend.widget.more')}
+        </div>
+    );
 };
 
 const generateTrends = trends => {

@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { trans } from '../../lib/transtor';
 import { useVisibility } from '../../components/hooks';
 import { Divider } from '../../components/utils/Divider';
 import { Widget } from '../../components/utils/Widget';
@@ -54,7 +55,9 @@ const Explore = () => {
                 <section id="suggestion">
                     <div className="p-2">
                         <Widget>
-                            <FollowSuggestion title="Who to follow" />
+                            <FollowSuggestion
+                                title={trans('follow.widget.title')}
+                            />
                         </Widget>
                     </div>
                 </section>

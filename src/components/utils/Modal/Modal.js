@@ -103,7 +103,7 @@ const Modal = props => {
 Modal.propTypes = {
     size: PropTypes.oneOf([ModalSize.SMALL, ModalSize.MEDIUM, ModalSize.BIG]),
     header: PropTypes.element,
-    title: PropTypes.string,
+    title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
     closeIcon: PropTypes.oneOfType([PropTypes.element, PropTypes.object]),
     footer: PropTypes.element,
     onClose: PropTypes.func,

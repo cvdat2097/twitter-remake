@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import { trans } from '../lib/transtor';
 import { Popover, PopoverPosition } from '../components/utils/Popover';
 import { Menu, MenuItem } from '../components/utils/Menu';
 
@@ -19,23 +20,23 @@ const AppFooter = () => {
     return (
         <footer className="px-4 py-3">
             <Link className="xsmall text-muted mr-3" to="#">
-                Terms
+                {trans('footer.terms')}
             </Link>
             <Link className="xsmall text-muted mr-3" to="#">
-                Privacy Policy
+                {trans('footer.policy')}
             </Link>
             <Link className="xsmall text-muted mr-3" to="#">
-                Cookies
+                {trans('footer.cookies')}
             </Link>
             <Link className="xsmall text-muted mr-3" to="#">
-                Ads info
+                {trans('footer.adsInfo')}
             </Link>
             <span
                 className="xsmall text-muted mr-3 btn-link position-relative text-nowrap"
                 href="#"
                 onClick={handleMenuClick}
             >
-                <span>More&nbsp;</span>
+                <span>{trans('footer.more')}&nbsp;</span>
 
                 <DownSVG className="align-middle" width="10" height="10" />
 
@@ -45,20 +46,38 @@ const AppFooter = () => {
                     position={PopoverPosition.BOTTOM_RIGHT}
                 >
                     <Menu>
-                        <MenuItem title={<span className="big">About</span>} />
-                        <MenuItem title={<span className="big">Status</span>} />
                         <MenuItem
-                            title={<span className="big">Businesses</span>}
+                            title={
+                                <span className="big">
+                                    {trans('footer.more.about')}
+                                </span>
+                            }
                         />
                         <MenuItem
-                            title={<span className="big">Developer</span>}
+                            title={
+                                <span className="big">
+                                    {trans('footer.more.status')}
+                                </span>
+                            }
+                        />
+                        <MenuItem
+                            title={
+                                <span className="big">
+                                    {trans('footer.more.businesses')}
+                                </span>
+                            }
+                        />
+                        <MenuItem
+                            title={
+                                <span className="big">
+                                    {trans('footer.more.developer')}
+                                </span>
+                            }
                         />
                     </Menu>
                 </Popover>
             </span>
-            <span className="xsmall text-muted">
-                &copy;&nbsp;Twitter, Inc - Remaked by D
-            </span>
+            <span className="xsmall text-muted">{trans('footer.copy')}</span>
         </footer>
     );
 };

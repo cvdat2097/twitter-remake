@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { trans } from '../../lib/transtor';
 import { Widget } from '../../components/utils/Widget';
 import { Empty } from '../../components/utils/Empty';
 import { Tabs, TabBody } from '../../components/utils/Tabs';
@@ -59,7 +60,9 @@ const Notification = () => {
                 </div>
                 <div className="p-2">
                     <Widget>
-                        <FollowSuggestion title="Who to follow" />
+                        <FollowSuggestion
+                            title={trans('follow.widget.title')}
+                        />
                     </Widget>
                 </div>
 

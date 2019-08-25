@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { trans } from '../../lib/transtor';
 import { useVisibility } from '../../components/hooks';
 import { Widget } from '../../components/utils/Widget';
 import Tweet from '../../components/tweet/Tweet';
@@ -126,7 +127,9 @@ const Search = props => {
 
                 <div className="p-2">
                     <Widget>
-                        <FollowSuggestion title="Who to follow" />
+                        <FollowSuggestion
+                            title={trans('follow.widget.title')}
+                        />
                     </Widget>
                 </div>
 
