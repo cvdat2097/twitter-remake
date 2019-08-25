@@ -10,6 +10,4 @@ export default {
     'home.header.switch.description.lastest':
         'You’ll be switched back Home after you’ve been away for a while.',
     'home.header.settings': 'View content preferences',
-
-    'home.composer.placeholder': 'What \' happening?',
 };

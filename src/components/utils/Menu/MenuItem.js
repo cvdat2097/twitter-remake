@@ -35,7 +35,7 @@ const MenuItem = props => {
 MenuItem.propTypes = {
     title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
     icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    description: PropTypes.string,
+    description: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
     className: PropTypes.string,
     onClick: PropTypes.func,
 };

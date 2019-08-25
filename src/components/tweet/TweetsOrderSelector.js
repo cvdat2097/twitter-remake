@@ -73,7 +73,10 @@ const TweetsOrderSelector = props => {
                     description={description}
                     onClick={handleTweetOrderChange}
                 />
-                <MenuItem icon={settingsSVG} title="View content preferences" />
+                <MenuItem
+                    icon={settingsSVG}
+                    title={trans('home.header.settings')}
+                />
             </Menu>
         </div>
     );

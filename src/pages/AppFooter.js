@@ -1,5 +1,5 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import { Popover, PopoverPosition } from '../components/utils/Popover';
 import { Menu, MenuItem } from '../components/utils/Menu';
@@ -18,18 +18,18 @@ const AppFooter = () => {
     };
     return (
         <footer className="px-4 py-3">
-            <a className="xsmall text-muted mr-3" href="#">
+            <Link className="xsmall text-muted mr-3" to="#">
                 Terms
-            </a>
-            <a className="xsmall text-muted mr-3" href="#">
+            </Link>
+            <Link className="xsmall text-muted mr-3" to="#">
                 Privacy Policy
-            </a>
-            <a className="xsmall text-muted mr-3" href="#">
+            </Link>
+            <Link className="xsmall text-muted mr-3" to="#">
                 Cookies
-            </a>
-            <a className="xsmall text-muted mr-3" href="#">
+            </Link>
+            <Link className="xsmall text-muted mr-3" to="#">
                 Ads info
-            </a>
+            </Link>
             <span
                 className="xsmall text-muted mr-3 btn-link position-relative text-nowrap"
                 href="#"

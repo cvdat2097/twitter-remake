@@ -21,16 +21,10 @@ const PageHeader = props => {
                 </div>
             ) : null}
 
-            {typeof title === 'string' ? (
-                <div className="d-flex flex-column">
-                    <h1 className="h5 m-0 font-weight-bold flex-grow-1">
-                        {title}
-                    </h1>
-                    <span className="small text-secondary">{description}</span>
-                </div>
-            ) : (
-                <div className="flex-grow-1">{title}</div>
-            )}
+            <div className="flex-grow-1">
+                <h1 className="h5 m-0 font-weight-bold">{title}</h1>
+                <span className="small text-secondary">{description}</span>
+            </div>
 
             {rightOnClick || rightIcon ? (
                 <div className="ml-auto pl-2">
