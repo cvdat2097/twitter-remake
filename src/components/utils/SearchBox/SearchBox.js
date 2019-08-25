@@ -28,7 +28,7 @@ const SearchBox = props => {
     };
 
     const handleInputBlur = () => {
-        // setResultVisibility(false);
+        setResultVisibility(false);
     };
 
     return (

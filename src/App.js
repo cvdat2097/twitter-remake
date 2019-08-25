@@ -7,6 +7,8 @@ import NavBar from './pages/NavBar';
 import routes from './config/routes';
 import { TransProvider } from './lib/transtor';
 
+import DevSettings from './DevSettings';
+
 import store from './core/store';
 
 import LanguagePack_EN from './locales/en-US';
@@ -37,7 +39,9 @@ const App = () => {
                                 className="row no-gutters"
                             >
                                 <div className="col-auto col-xl-3">
-                                    <NavBar
+                                    <NavBar />
+
+                                    <DevSettings
                                         onChangeLanguage={onChangeLanguage}
                                     />
                                 </div>

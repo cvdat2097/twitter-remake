@@ -101,6 +101,7 @@ const Modal = props => {
 };
 
 Modal.propTypes = {
+    visible: PropTypes.bool,
     size: PropTypes.oneOf([ModalSize.SMALL, ModalSize.MEDIUM, ModalSize.BIG]),
     header: PropTypes.element,
     title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
