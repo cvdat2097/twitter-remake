@@ -14,6 +14,9 @@ import store from './core/store';
 import LanguagePack_EN from './locales/en-US';
 import LanguagePack_VI from './locales/vi-VN';
 
+import './stylesheet/theme-blue.scss';
+// import * as purpleTheme from './stylesheet/theme-purple.scss';
+
 window.store = store;
 
 const dictionary = {

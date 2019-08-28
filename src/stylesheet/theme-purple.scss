@@ -1,0 +1,20 @@
+$tw-colors: (
+    tw-primary: #794bc4,
+    tw-success: #17bf63,
+    tw-danger: #e0245e,
+    tw-light: #f5f8fa,
+    tw-light-hover: #f5f8fa,
+    tw-light-active: #e1e8ed,
+    tw-secondary: #aab8c2,
+);
+
+:export {
+    twPrimary: map-get($tw-colors, 'tw-primary');
+    twSuccess: map-get($tw-colors, 'tw-success');
+    twDanger: map-get($tw-colors, 'tw-danger');
+    twLight: map-get($tw-colors, 'tw-light');
+
+    maxInnerPostWidth: 550px;
+}
+
+@import './style.scss';

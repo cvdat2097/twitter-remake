@@ -1,14 +1,3 @@
-@import './variables';
-
-:export {
-    twPrimary: map-get($tw-colors, 'tw-primary');
-    twSuccess: map-get($tw-colors, 'tw-success');
-    twDanger: map-get($tw-colors, 'tw-danger');
-    twLight: map-get($tw-colors, 'tw-light');
-
-    maxInnerPostWidth: 550px;
-}
-
 // global
 body {
     overflow-y: overlay;

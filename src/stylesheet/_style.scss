@@ -1,4 +1,5 @@
-@import '../style.scss';
+@import './variables';
+@import './utils';
 
 // =============== CUSTOM VARIABLES ================
 // Grid breakpoints
@@ -27,7 +28,7 @@ $border-color: $gray-400;
 
 $border-radius-xl: 0.7rem !default;
 
-@import './scss/bootstrap.scss';
+@import './bootstrap/scss/bootstrap.scss';
 
 // =============== CUSTOM CLASSES ================
 .fluid-container {

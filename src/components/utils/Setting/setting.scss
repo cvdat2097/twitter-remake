@@ -1,13 +1,13 @@
-@import '../../../stylesheet//style.scss';
+// @import '../../../stylesheet/variables';
 
-.tw-setting-container {
-    cursor: pointer;
+// .tw-setting-container {
+//     cursor: pointer;
 
-    &:hover {
-        background: map-get($tw-colors, 'tw-light-hover');
-    }
+//     &:hover {
+//         background: map-get($tw-colors, 'tw-light-hover');
+//     }
 
-    &:active {
-        background: map-get($tw-colors, 'tw-light-active');
-    }
-}
+//     &:active {
+//         background: map-get($tw-colors, 'tw-light-active');
+//     }
+// }

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import ButtonType from './ButtonType';
 
-import appStyle from '../../../stylesheet/style.scss';
+import appStyle from '../../../stylesheet/theme-blue.scss';
 import './button.scss';
 
 const ButtonTag = props => {

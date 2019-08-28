@@ -1,12 +1,11 @@
-@import '../../../stylesheet//style.scss';
+// @import '../../../stylesheet/';
 
-.tw-menu-item {
+// .tw-menu-item {
+//     &:hover {
+//         background: map-get($tw-colors, 'tw-light-hover');
+//     }
 
-    &:hover {
-        background: map-get($tw-colors, 'tw-light-hover');
-    }
-
-    &:active {
-        background: map-get($tw-colors, 'tw-light-active');
-    }
-}
+//     &:active {
+//         background: map-get($tw-colors, 'tw-light-active');
+//     }
+// }

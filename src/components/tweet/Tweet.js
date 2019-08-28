@@ -22,7 +22,7 @@ import muteSvg from '../../assets/svg/icons/mute.svg';
 import blockSvg from '../../assets/svg/icons/block.svg';
 import reportSvg from '../../assets/svg/icons/report.svg';
 
-import style from '../../stylesheet/style.scss';
+import style from '../../stylesheet/theme-blue.scss';
 
 const TweetMedia = props => {
     const { mediaType, media } = props;
