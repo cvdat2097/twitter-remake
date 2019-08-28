@@ -53,13 +53,13 @@ const DevSettings = props => {
                         <option value="vi">Tiếng Việt</option>
                     </select>
                 </div>
-                <div className="p-3">
+                {/* <div className="p-3">
                     <p className="mb-2 font-weight-bold">Theme</p>
                     <select className="form-control" onChange={() => {}}>
                         <option value="light">Light</option>
                         <option value="dark">Dark</option>
                     </select>
-                </div>
+                </div> */}
             </Modal>
         </div>
     );
