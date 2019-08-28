@@ -1,4 +1,4 @@
-// import ACTION_TYPE from './type';
+// import types from './type';
 
 const INITIAL_STATE = {
     current: {

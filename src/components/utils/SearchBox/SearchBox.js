@@ -20,7 +20,7 @@ const SearchBox = props => {
     const handleInputChange = event => {
         setKeyword(event.target.value);
 
-        onChange && onChange(keyword);
+        onChange && onChange(event.target.value);
     };
 
     const handleInputFocus = () => {

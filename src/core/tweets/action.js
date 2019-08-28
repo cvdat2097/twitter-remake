@@ -1,4 +1,4 @@
-import ACTION_TYPE from './type';
+import Types from './type';
 import { TWEETS_ORDER } from '../../constants/tweet';
 
 export default {
@@ -15,7 +15,7 @@ export default {
         }
 
         return {
-            type: ACTION_TYPE.CHANGE_TWEETS_ORDER,
+            type: Types.CHANGE_TWEETS_ORDER,
             order,
         };
     },

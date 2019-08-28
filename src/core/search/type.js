@@ -1,3 +1,3 @@
 export default {
-    GOT_SEARCH_RESULTS: Symbol('GOT SEARCH RESULTS'),
+    GOT_SEARCH_RESULTS: 'GOT SEARCH RESULTS',
 };

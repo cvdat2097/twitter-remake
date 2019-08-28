@@ -115,7 +115,7 @@ const Profile = props => {
                                     description="Please comeback later"
                                 />
                             </TabBody>
-                            <TabBody title="Meida">
+                            <TabBody title="Media">
                                 <Empty
                                     title="Under Construction"
                                     description="Please comeback later"

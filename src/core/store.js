@@ -1,8 +1,16 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-import reducers from './reducers';
+import { createAsyncMiddleware } from '../lib/redux-async';
 
-const store = createStore(reducers, composeWithDevTools());
+import reducers from './reducers';
+import asyncReducers from './asyncReducers';
+
+const asyncMiddleware = createAsyncMiddleware(asyncReducers);
+
+const store = createStore(
+    reducers,
+    composeWithDevTools(applyMiddleware(asyncMiddleware))
+);
 
 export default store;

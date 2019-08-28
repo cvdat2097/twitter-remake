@@ -1,24 +1,7 @@
-import ROUTES from './routes';
 import { SEARCH_RESULTS } from '../mock/search';
 
-const mockRequest = (_method, url, payload) => {
-    let response = null;
-    const keyword = payload;
+const delay = response => {
     const requestDelay = 1000;
-
-    switch (url) {
-        case ROUTES.SEARCH:
-            if (keyword) {
-                response = SEARCH_RESULTS;
-            } else {
-                response = {};
-            }
-
-            break;
-
-        default:
-            response = null;
-    }
 
     return new Promise(resolve => {
         setTimeout(() => {
@@ -27,7 +10,15 @@ const mockRequest = (_method, url, payload) => {
     });
 };
 
-export default mockRequest;
+export default {
+    search: async keyword => {
+        if (keyword) {
+            return await delay(SEARCH_RESULTS);
+        }
+
+        return null;
+    },
+};
 
 export const METHOD = {
     GET: 'GET',

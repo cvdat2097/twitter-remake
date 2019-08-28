@@ -1,8 +1,15 @@
-import ACTION_TYPE from './type';
+import Types from './type';
+import AsyncTypes from './asyncType';
 
 export default {
+    search: keyword => ({
+        type: AsyncTypes.SEARCH,
+        isAsync: true,
+        keyword,
+    }),
+
     gotSearchResults: results => ({
-        type: ACTION_TYPE.GOT_SEARCH_RESULTS,
+        type: Types.GOT_SEARCH_RESULTS,
         results,
     }),
 };

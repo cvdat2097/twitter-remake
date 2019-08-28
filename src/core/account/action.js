@@ -1,4 +1,4 @@
-// import ACTION_TYPE from './type';
+// import Types from './type';
 
 export default {
     
