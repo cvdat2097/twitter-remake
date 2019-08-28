@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import { Link } from 'react-router-dom';
 
+import { Popover, PopoverPosition } from '../../utils/Popover';
 import { AccountSummary } from '../AccountSummary';
 
 import './search.scss';
@@ -54,16 +54,20 @@ const generateAccountResults = results => {
 };
 
 const SearchResult = props => {
-    const { className, results, keyword } = props;
+    const { results, keyword, visible, onClose } = props;
     const { topics, accounts } = results;
 
     return (
-        <div
-            className={
-                'tw-search-result card shadow ' + (className ? className : '')
-            }
+        <Popover
+            style={{
+                top: 'calc(100% + 5px)',
+                width: '100%',
+            }}
+            onClose={onClose}
+            position={PopoverPosition.CUSTOM}
+            visible={visible}
         >
-            <div className="card-body p-0">
+            <div className="d-flex flex-column w-100">
                 {keyword && (topics || accounts) ? (
                     <>
                         <div className="topic-results">
@@ -91,7 +95,7 @@ const SearchResult = props => {
                     </div>
                 )}
             </div>
-        </div>
+        </Popover>
     );
 };
 

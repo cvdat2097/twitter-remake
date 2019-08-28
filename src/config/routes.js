@@ -35,6 +35,7 @@ const ROUTE_CONFIG = [
     {
         name: 'HOME',
         path: '/home',
+        activePaths: ['/home'],
         title: <span className={navLinkClassName}>{trans('navbar.home')}</span>,
         icon: HomeSVG,
         activeIcon: ActiveHomeSVG,
@@ -53,6 +54,7 @@ const ROUTE_CONFIG = [
     {
         name: 'EXPLORE',
         path: '/explore',
+        activePaths: ['/explore', '/search'],
         title: (
             <span className={navLinkClassName}>{trans('navbar.explore')}</span>
         ),
@@ -69,6 +71,7 @@ const ROUTE_CONFIG = [
     {
         name: 'NOTIFICATION',
         path: '/notification',
+        activePaths: ['/notification'],
         title: (
             <span className={navLinkClassName}>
                 {trans('navbar.notifications')}
@@ -81,6 +84,7 @@ const ROUTE_CONFIG = [
     {
         name: 'MESSAGES',
         path: '/messages',
+        activePaths: ['/messages'],
         title: (
             <span className={navLinkClassName}>{trans('navbar.messages')}</span>
         ),
@@ -91,6 +95,7 @@ const ROUTE_CONFIG = [
     {
         name: 'BOOKMARK',
         path: '/bookmark',
+        activePaths: ['/bookmark'],
         title: (
             <span className={navLinkClassName}>
                 {trans('navbar.bookmarks')}
@@ -108,11 +113,13 @@ const ROUTE_CONFIG = [
         ),
         activeIcon: ActiveListsSVG,
         path: '/list',
+        activePaths: ['/list'],
         component: ListsPage,
     },
     {
         name: 'PROFILE',
         path: '/profile',
+        activePaths: ['/profile'],
         title: (
             <span className={navLinkClassName}>{trans('navbar.profile')}</span>
         ),

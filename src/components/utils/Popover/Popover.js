@@ -29,13 +29,16 @@ const getStyleFromPosition = position => {
                 left: 0,
             };
 
+        case PopoverPosition.CUSTOM:
+            return {};
+
         default:
             throw new Error('Invalid Position Type');
     }
 };
 
 const Popover = props => {
-    const { children, visible, position, onClose } = props;
+    const { children, visible, position, onClose, style } = props;
 
     const styleFromPosition = getStyleFromPosition(position);
 
@@ -56,6 +59,7 @@ const Popover = props => {
                     onClick={handlePopoverClick}
                     className="d-inline-flex position-absolute shadow bg-white overflow-hidden"
                     style={{
+                        ...style,
                         ...styleFromPosition,
                         zIndex: 9999,
                         maxWidth: '75vw',
@@ -80,10 +84,12 @@ Popover.propTypes = {
         PopoverPosition.BOTTOM_RIGHT,
         PopoverPosition.TOP_LEFT,
         PopoverPosition.TOP_RIGHT,
+        PopoverPosition.CUSTOM,
     ]),
     onClose: PropTypes.func,
     children: PropTypes.any,
     visible: PropTypes.bool,
+    style: PropTypes.object,
 };
 
 Popover.defaultProps = {

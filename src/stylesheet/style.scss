@@ -9,6 +9,12 @@
     maxInnerPostWidth: 550px;
 }
 
+// global
+body {
+    overflow-y: overlay;
+    padding-right: 10px;
+}
+
 // Functions
 @function get-hover-color($color) {
     @return lighten($color, 40%);

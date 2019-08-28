@@ -31,17 +31,6 @@
     }
 }
 
-.tw-search-result {
-    position: absolute !important;
-    top: 100%;
-    left: 0;
-    width: 100%;
-
-    margin-top: 1px;
-
-    z-index: 1;
-}
-
 .search-result:last-of-type {
     border-bottom: none !important;
 }

@@ -95,14 +95,23 @@ const MoreMenu = ({ visible, onClose, currentAccount }) => {
 // TODO: Custom Avatar somewhere else
 const generateNavButtons = (
     buttons,
-    activePath,
+    currentPath,
     custom = { pathToCustomize: null }
 ) => {
     const { pathToCustomize, customIcon, customActiveIcon } = custom;
 
     return buttons.map(
         (
-            { icon, activeIcon, activeColor, title, path, redirect, hideInNav },
+            {
+                icon,
+                activeIcon,
+                activeColor,
+                title,
+                path,
+                activePaths,
+                redirect,
+                hideInNav,
+            },
             index
         ) => {
             const Icon = icon;
@@ -125,7 +134,7 @@ const generateNavButtons = (
                             }
                             activeColor={activeColor}
                             title={title}
-                            active={activePath === path}
+                            active={activePaths.indexOf(currentPath) !== -1}
                             href={path}
                         />
                     </div>

@@ -27,7 +27,7 @@ const SearchBox = props => {
         setResultVisibility(true);
     };
 
-    const handleInputBlur = () => {
+    const handleSearchResultClose = () => {
         setResultVisibility(false);
     };
 
@@ -48,7 +48,6 @@ const SearchBox = props => {
                 value={keyword}
                 onChange={handleInputChange}
                 onFocus={handleInputFocus}
-                onBlur={handleInputBlur}
             />
 
             <button
@@ -60,11 +59,11 @@ const SearchBox = props => {
                 <img src={closeSVG} alt="" width="10" height="10" />
             </button>
 
-            {/* TODO: use Popover */}
             <SearchResult
                 keyword={keyword}
-                className={resultVisibility ? '' : 'd-none'}
+                visible={resultVisibility}
                 results={results}
+                onClose={handleSearchResultClose}
             />
         </div>
     );
@@ -74,7 +73,6 @@ SearchBox.propTypes = {
     onChange: PropTypes.func,
     placeholder: PropTypes.string,
     results: PropTypes.object,
-    // fontSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 export default SearchBox;
